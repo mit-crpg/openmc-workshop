@@ -1,0 +1,81 @@
+\documentclass{beamer}
+%\documentclass[handout,t]{beamer}
+
+\batchmode
+% \usepackage{pgfpages}
+% \pgfpagesuselayout{4 on 1}[letterpaper,landscape,border shrink=5mm]
+
+\usepackage{amsmath,amssymb,enumerate,epsfig,bbm,calc,color,ifthen,capt-of}
+
+\usepackage{ifthen}
+\usepackage{tikz}
+\usetikzlibrary{calc,shapes,arrows}
+
+\usetheme{Berlin}
+\setbeamertemplate{mini frames}{}
+\usecolortheme{mit}
+
+\title{TITLE}
+\author{AUTHOR}
+\date{\today}
+\pgfdeclareimage[height=0.5cm]{mit-logo}{mit-logo.pdf}
+\logo{\pgfuseimage{mit-logo}\hspace*{0.3cm}}
+
+\AtBeginSection[]
+{
+  \begin{frame}<beamer>
+    \frametitle{Outline}
+    \tableofcontents[currentsection]
+  \end{frame}
+}
+%\beamerdefaultoverlayspecification{<+->}
+
+% extra thing added to this document to make 
+%\PassOptionsToPackage{draft}{graphicx}
+
+
+% -----------------------------------------------------------------------------
+\begin{document}
+% -----------------------------------------------------------------------------
+
+\frame{\titlepage}
+
+\section[Outline]{}
+\begin{frame}{Outline}
+  \tableofcontents
+\end{frame}
+
+% -----------------------------------------------------------------------------
+% -----------------------------------------------------------------------------
+\section{SECTION}
+% -----------------------------------------------------------------------------
+\subsection{SUBSECTION}
+
+\begin{frame}{FRAMETITLE}
+  \begin{columns}[c]
+    \column{2.0in}
+      \begin{itemize}
+        \item 1 
+        \item 2
+        \item 3
+      \end{itemize}
+
+    \column{2.0in}
+%      \includegraphics[width=2.0in]{figs/figure.png}
+  \end{columns}
+\end{frame}
+
+\begin{frame}{FRAMETITLE}
+  \begin{itemize}
+      \item 1 
+      \item 2
+      \item 3
+  \end{itemize}
+  \begin{figure}
+    \centering
+%    \includegraphics[width=3.0in]{figs/figure.png}
+  \end{figure}
+\end{frame}
+
+% -----------------------------------------------------------------------------
+\end{document}

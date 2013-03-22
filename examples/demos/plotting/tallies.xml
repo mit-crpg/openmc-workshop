@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tallies>
+
+  <tally id="1">
+    <filter type="mesh" bins="1"/>
+    <scores>flux</scores>
+  </tally>
+
+  <mesh id="1">
+    <type>rectangular</type>
+    <origin>0.0 0.0 0.0</origin>
+    <upper_right>50 50 50</upper_right>
+    <lower_left>-50 -50 -50</lower_left>
+    <dimension>100 100 100</dimension>
+  </mesh>
+
+</tallies>

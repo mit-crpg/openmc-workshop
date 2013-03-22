@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<geometry>
+
+  <!--            XML Comment            -->
+  <surface id="     1" type="sphere"          coeffs="        0.0 0.0 0.0 100"/>   <!--          XML Comment          -->
+
+  <cell id="     1" universe="     0" material="     1"  surfaces="        -1"/>
+
+
+</geometry>

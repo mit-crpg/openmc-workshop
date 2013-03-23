@@ -1,16 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <materials>
 
-  <!--           Borated Water            -->
-  <material id="     1">
-    <density value="0.740582" units="g/cc" />
-    <nuclide name="B-10"  xs="71c" ao="8.0042e-06" />
-    <nuclide name="B-11"  xs="71c" ao="3.2218e-05" />
-    <nuclide name="H-1"  xs="71c" ao="4.9457e-02" />
-    <nuclide name="H-2"  xs="71c" ao="7.4196e-06" />
-    <nuclide name="O-16"  xs="71c" ao="2.4672e-02" />
-    <nuclide name="O-17"  xs="71c" ao="6.0099e-05" />
-    <sab     name="lwtr" xs="15t" />
+  <!-- UO2 -->
+  <material id="1">
+    <density value="10.3" units="g/cc" />
+    <nuclide name="U-235" xs="70c" wo="0.02115" />
+    <nuclide name="U-238" xs="70c" wo="0.86032" />
+    <nuclide name="O-16"  xs="70c" wo="0.11852" />
+  </material>
+
+  <!-- Zirconium -->
+  <material id="2">
+    <density value="6.55" units="g/cc" />
+    <element name="Zr" xs="70c" ao="1" />
+  </material>
+
+  <!-- Water -->
+  <material id="3">
+    <density value="0.701" units="g/cc" />
+    <nuclide name="H-1"  xs="70c" ao="2.0" />
+    <nuclide name="O-16" xs="70c" ao="1.0" />
+    <sab     name="lwtr" xs="70t" />
   </material>
 
 </materials>

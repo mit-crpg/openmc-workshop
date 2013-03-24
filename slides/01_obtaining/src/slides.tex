@@ -38,14 +38,19 @@
 {
   basicstyle=\ttfamily\scriptsize,
   morestring=[b]",
-  frame=none,
-  morestring=[s]{>}{<},
+  frame=single,
+  backgroundcolor=\color{gray!20},
+% morestring=[s]{>}{<},
   morecomment=[s]{<?}{?>},
   morecomment=[s]{<!--}{-->},
-  stringstyle=\color{black},
+  stringstyle=\color{red},
   identifierstyle=\color{darkblue},
   keywordstyle=\color{cyan},
 }
+
+\definecolor{gray}{rgb}{0.4,0.4,0.4}
+\definecolor{darkblue}{rgb}{0.0,0.0,0.6}
+\definecolor{cyan}{rgb}{0.0,0.6,0.6}
 
 \usetheme{Copenhagen}
 \usecolortheme{beaver}
@@ -300,6 +305,46 @@ sudo make install
     \item<1-> Setting CMFD parameters --- \textbf{cmfd.xml}
     \vfill
     \end{itemize}
+  \end{itemize}
+\end{frame}
+
+%-------------------------------------------------------------------------------
+
+\begin{frame}{XML Basics}
+  \begin{itemize}
+  \item<1-> XML = e\textbf{X}tensible \textbf{M}arkup \textbf{L}anguage
+  \item<1-> Two kinds of information in a file:
+    \begin{itemize}
+    \item<1-> \textit{Markup}, like \texttt{<firstName>}, that describes the
+      structure of the document, and
+    \item<1-> \textit{Text}, like ``Paul'', that is the actual content of the document
+    \end{itemize}
+  \item<1-> All text must be contained within \textit{opening} and
+    \textit{closing} tags, e.g. \texttt{<firstName>Paul</firstName>}
+  \end{itemize}
+\end{frame}
+
+%-------------------------------------------------------------------------------
+
+\begin{frame}[fragile]{XML Basics}
+  \begin{itemize}
+  \item<1-> Nesting of elements usually represents logical relationships:
+    \begin{lstlisting}[language=XML]
+<?xml version="1.0"?>
+<EmployeeDatabase>
+
+  <!-- Information about our employees -->
+
+  <employee>
+    <firstName>Paul</firstName>
+    <lastName>Romano</lastName>
+    <age>26</age>
+  </employee>
+
+  <employee firstName="Li" lastName="Zhu" age="34" />
+
+</EmployeeDatabase>
+    \end{lstlisting}
   \end{itemize}
 \end{frame}
 

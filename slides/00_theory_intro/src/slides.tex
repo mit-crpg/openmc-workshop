@@ -96,6 +96,22 @@
     \proton{0.17,0.21}
 }
 
+% For Loop 
+\newcommand{\forloop}[5][1]% 
+{% 
+\setcounter{#2}{#3}% 
+\ifthenelse{#4}% 
+  {% 
+  #5% 
+  \addtocounter{#2}{#1}% 
+  \forloop[#1]{#2}{\value{#2}}{#4}{#5}%
+  }% 
+% Else 
+  {% 
+  }% 
+}%
+
+
 %-------------------------------------------------------------------------------
 \begin{document}
 %-------------------------------------------------------------------------------
@@ -303,7 +319,26 @@
 
 %-------------------------------------------------------------------------------
 
-\begin{frame}{Implicit Fission Model -- Eigenvalue Calculations}
+\begin{frame}[fragile]{Implicit Fission Model -- Eigenvalue Calculations}
+
+\begin{itemize}
+
+  \item Fission is not explicity sampled, like other reactions\vfill
+  \item At every collision, fission neutrons are implicitly sampled\vfill
+  \begin{equation*}
+     n = \left \lfloor w \frac{\nu\Sigma_f}{\Sigma_t} + \xi \right
+     \rfloor \quad \text{fission sites}
+  \end{equation*} \vfill
+  \item Sites are banked for next batch of neutrons\vfill
+  \begin{lstlisting}[language=Fortran,frame=single,backgroundcolor=\color{gray!20}]
+  type Bank
+    real(8)    :: wgt    ! weight of bank site
+    real(8)    :: xyz(3) ! location of bank particle
+    real(8)    :: uvw(3) ! diretional cosines
+    real(8)    :: E      ! energy
+  end type Bank
+  \end{lstlisting} 
+\end{itemize}
 
 \end{frame}
 
@@ -311,11 +346,43 @@
 
 \begin{frame}{Estimating Effective Multiplication Factor}
 
+  \begin{itemize}
+
+    \item Analog
+\[
+    k_{ana} = \frac{\sum_{i\in\rm{bank}}w_i}{W}
+\]
+    \item Collision
+\[
+    k_{col} = \sum\frac{w_i\nu\Sigma_{f}}{W\Sigma_{t}}
+\]
+    \item Absorption
+\[
+    k_{abs} = \sum\frac{w_i\nu\Sigma_{f}}{W\Sigma_{a}}
+\]
+    \item Track-length
+\[
+    k_{track} = \sum\frac{w_i\nu\Sigma_{f}d}{W}
+\]
+  \end{itemize}
+
 \end{frame}
 
 %-------------------------------------------------------------------------------
 
 \begin{frame}{Tallying Physics}
+
+  \begin{itemize}
+    \item Method to extract quantities out of Monte Carlo run (e.g., flux, reaction rates, current, etc.)\vfill
+    \item Tallies are made using different estimators (e.g., analog, collision, track-length)\vfill
+    \item When an event occurs, the following formula is used for tallies:
+\[
+      {\rm{tally}} = \sum_{i\in\rm{events}}\frac{R_iw_i\phi_i}{W}
+\]\vfill
+    \item $w_i$: neutron statistical weight
+    \item $R_i$: response function (flux=1, reaction rates=$\Sigma$)
+    \item $\phi$: estimator (analog=1, collision=$\Sigma_t^{-1}$, track=$d$)
+  \end{itemize}
 
 \end{frame}
 
@@ -323,6 +390,24 @@
 
 \begin{frame}{Eigenvalue Calculations -- Converging Fission Source}
 
+  \begin{itemize}
+
+    \item Monte Carlo eigenvalue problem solved with Power Iteration
+    \item Source must be guessed and iterated until converged
+    \item May take many iterations (inactive batches) to converge depending on
+          dominance ratio
+
+  \end{itemize}
+  \begin{center}
+    \newcounter{kount}
+    \begin{animateinline}[poster = first, controls]{5}
+      \forloop[1]{kount}{6}{\value{kount} < 150}
+      {
+        \includegraphics[scale=0.7]{../src/src_figs/statepoint\arabic{kount}.pdf}
+        \newframe
+      }
+    \end{animateinline}
+  \end{center}
 \end{frame}
 
 %-------------------------------------------------------------------------------

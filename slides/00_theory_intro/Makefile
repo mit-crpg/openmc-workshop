@@ -1,8 +1,7 @@
 slides.pdf: src/slides.tex
 	mkdir -p build
-	pdflatex --output-directory=build src/slides.tex
-	pdflatex --output-directory=build src/slides.tex
-	cp build/slides.pdf .
+	cd build; pdflatex --shell-escape ../src/slides.tex; pdflatex --shell-escape ../src/slides.tex; cp slides.pdf ..
+	cd ..
 
 clean:
 	rm -rf build

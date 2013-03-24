@@ -129,6 +129,7 @@
         Water & O-16 & 1.0 (a) \\
         \bottomrule
       \end{tabular}
+      {\centering\footnotesize w = weight fraction, a = atom fraction}
     \end{column}
   \end{columns}
 \end{frame}
@@ -242,7 +243,9 @@
            \item<1-> Inside Surface 1 (-1)
            \item<1-> Above -z plane (8)
            \item<1-> Below +z plane (-9)
-        \end{itemize}\vfill
+        \end{itemize}
+        ~\\
+        ~\\
         \item<1-> {\color{green} Gap} --- No Material (\emph{void})
         \begin{itemize}\scriptsize
            \item<1-> Outside Surface 1 (1)
@@ -426,6 +429,47 @@
 
 %-------------------------------------------------------------------------------
 
+\begin{frame}[fragile]{Nuclide data \texttt{cross\_sections.xml} File}
+  \begin{columns}
+  \begin{column}{0.5\linewidth}
+  \begin{itemize}
+    \footnotesize
+    \item {\color{darkblue}directory}: root director of ace files
+    \item {\color{darkblue}alias}: \texttt{materials.xml} file links here
+    \item {\color{darkblue}awr}: atomic weight ratio
+    \item {\color{darkblue}location}: line number where isotope begins
+  \end{itemize}
+  \end{column}
+  \begin{column}{0.5\linewidth}
+    \footnotesize
+    \begin{itemize}
+      \item {\color{darkblue}name}: isotope zaid and extension
+      \item {\color{darkblue}path}: relative path of ACE file from root
+      \item {\color{darkblue}temperature}: isotope temp. in MeV
+      \item {\color{darkblue}zaid}: isotope ZAID ID
+    \end{itemize}
+  \end{column}
+  \end{columns}
+  \vfill
+  \begin{scriptsize}
+    \begin{lstlisting}[language=XML,basicstyle=\ttfamily\tiny,breaklines=true]
+<?xml version="1.0" ?>
+<cross_sections>
+  <directory>/opt/mcnp/data</directory>
+  <filetype>ascii</filetype>
+  <ace_table alias="H-1.70c" awr="0.999167" location="1" name="1001.70c" path="endf70a" temperature="2.5301e-08" zaid="1001"/>
+  <ace_table alias="H-1.72c" awr="0.999167" location="4115" name="1001.72c" path="endf70a" temperature="7.7556e-08" zaid="1001"/>
+  <ace_table alias="H-2.70c" awr="1.9968" location="10286" name="1002.70c" path="endf70a" temperature="2.5301e-08" zaid="1002"/>
+  <ace_table alias="H-3.70c" awr="2.989596" location="23704" name="1003.70c" path="endf70a" temperature="2.5301e-08" zaid="1003"/>
+  <ace_table awr="0.999167" location="2637033" name="lwtr.10t" path="endf70sab" zaid="0"/>
+</cross_sections>
+    \end{lstlisting}
+  \end{scriptsize}
+  \vfill
+\end{frame}
+
+%-------------------------------------------------------------------------------
+
 \begin{frame}{Let's Run OpenMC!}
 
   \begin{enumerate}
@@ -524,13 +568,13 @@ __________________888______________________________________________________
 
   Bat./Gen.   k(batch)        Average k
   =========   ========   ====================
-        1/1    1.37743                       
+        1/1    1.37743\tikzmark{end}                       
         2/1    1.23928                       
            ....
        18/1    1.30948                       
        19/1    1.37513                       
        20/1    1.35739                       
-       21/1    1.25861                       
+       21/1    1.25861\tikzmark{end2}                       
        22/1    1.23967    1.24914 +/- 0.00947
        23/1    1.34688    1.28172 +/- 0.03303
        24/1    1.28363    1.28220 +/- 0.02336
@@ -539,33 +583,37 @@ __________________888______________________________________________________
       111/1    1.33785    1.31086 +/- 0.00449
       112/1    1.33253    1.31110 +/- 0.00444
       113/1    1.31805    1.31117 +/- 0.00439
-      114/1    1.38429    1.31195 +/- 0.00442
+      114/1    1.38429    1.31195 +/- 0.00442\tikzmark{end3}
       115/1    1.32248    1.31206 +/- 0.00437
       116/1    1.32758    1.31222 +/- 0.00433
       117/1    1.26614    1.31175 +/- 0.00431
       118/1    1.36733    1.31232 +/- 0.00430
       119/1    1.31629    1.31236 +/- 0.00426
       120/1    1.30628    1.31230 +/- 0.00422
- Creating state point statepoint.120.binary...
+ Creating state point statepoint.120.binary...\tikzmark{end4}
     \end{semiverbatim}\endgroup
     \end{column}
     \begin{column}{0.35\linewidth}
     \scriptsize
     \begin{itemize}
       \vfill
-      \item Inactive Batches (tracklength k-eff reported) 
+      \item Inactive Batches (tracklength k-eff reported) \tikzmark{start}
       \\~
       \\~
-      \item Active Batches begin
+      \item Active Batches\tikzmark{start2} begin
       \\~
       \\~
-      \item K-eff is accumulated
+      \item K-eff is accumulated\tikzmark{start3}
       \\~
       \\~
-      \item Binary output file written
+      \item Binary output\tikzmark{start4} file written
     \end{itemize}
   \end{column}
   \end{columns}
+  \DrawArrow[red, thick, out=-160, in=0]{start}{end}
+  \DrawArrow[red, thick, out=-160, in=0]{start2}{end2}
+  \DrawArrow[red, thick, out=-160, in=0]{start3}{end3}
+  \DrawArrow[red, thick, out=-160, in=0]{start4}{end4}
 \end{frame}
 
 %-------------------------------------------------------------------------------

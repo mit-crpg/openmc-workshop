@@ -3,8 +3,8 @@
 
   <!-- Surfaces -->
   <surface id="1" type="z-cylinder" coeffs="0.0 0.0 0.39218" /> <!-- fuel radius -->
-  <surface id="2" type="z-cylinder" coeffs="0.0 0.0 0.40005" /> <!-- inner clad radius -->
-  <surface id="3" type="z-cylinder" coeffs="0.0 0.0 0.45720" /> <!-- outer clad radius -->
+  <surface id="2" type="z-cylinder" coeffs="0.0 0.0 0.40005" /> <!-- clad i radius -->
+  <surface id="3" type="z-cylinder" coeffs="0.0 0.0 0.45720" /> <!-- clad o radius -->
   <surface id="4" type="x-plane"    coeffs="-0.62992" boundary="reflective" />
   <surface id="5" type="x-plane"    coeffs=" 0.62992" boundary="reflective" />
   <surface id="6" type="y-plane"    coeffs="-0.62992" boundary="reflective" />

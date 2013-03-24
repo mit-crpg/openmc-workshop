@@ -7,7 +7,7 @@
   </cross_sections>
 
   <!-- Parameters for criticality calculation -->
-  <criticality batches="120" generations_per_batch="1" inactive="20" particles="1000" />
+  <eigenvalue batches="120" generations_per_batch="1" inactive="20" particles="1000" />
 
   <!-- Starting source -->
   <source>

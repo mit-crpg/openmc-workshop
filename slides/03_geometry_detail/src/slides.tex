@@ -1,81 +1,87 @@
-\documentclass{beamer}
-%\documentclass[handout,t]{beamer}
-
-\batchmode
-% \usepackage{pgfpages}
-% \pgfpagesuselayout{4 on 1}[letterpaper,landscape,border shrink=5mm]
-
-\usepackage{amsmath,amssymb,enumerate,epsfig,bbm,calc,color,ifthen,capt-of}
-
-\usepackage{ifthen}
+\expandafter\let\csname ver@amssymb.sty\endcsname\empty
+\documentclass[serif]{beamer}
+\expandafter\let\csname ver@amssymb.sty\endcsname\relax
+\usepackage{etex}
+\usepackage[bitstream-charter]{mathdesign} % Use BT Charter font
+\usepackage[T1]{fontenc}                   % Use T1 encoding instead of OT1
+\usepackage[utf8]{inputenc}                % Use UTF8 input encoding
+\usepackage{microtype}                     % Improve typography
+\usepackage{booktabs}
+\usepackage{cancel}
+\usepackage{algorithm}
+\usepackage{algorithmicx}
+\usepackage{algpseudocode}
+\usepackage{hyperref}
+\hypersetup{pdfstartview=Fit}
 \usepackage{tikz}
-\usetikzlibrary{calc,shapes,arrows}
+\usetikzlibrary{shapes,snakes,shadows,arrows,calc}
+\usepackage{multirow}
+\usepackage{animate}
+\usepackage{moresize}
+\usepackage{colortbl}
+\usepackage{xcolor}
+\usepackage{amsmath}
+\usepackage{etoolbox}
+\usepackage{listings}
+\usepackage{alltt}
 
-\usetheme{Berlin}
-\setbeamertemplate{mini frames}{}
-\usecolortheme{mit}
+\renewcommand\footnotemark{}
 
-\title{TITLE}
-\author{AUTHOR}
-\date{\today}
-\pgfdeclareimage[height=0.5cm]{mit-logo}{mit-logo.pdf}
-\logo{\pgfuseimage{mit-logo}\hspace*{0.3cm}}
-
-\AtBeginSection[]
-{
-  \begin{frame}<beamer>
-    \frametitle{Outline}
-    \tableofcontents[currentsection]
-  \end{frame}
+\lstset{
+  columns=fullflexible,
+  showspaces=false,
+  showtabs=false,
+  showstringspaces=false,
+  commentstyle=\color{gray}\upshape,
 }
-%\beamerdefaultoverlayspecification{<+->}
+\lstset{language=bash,frame=single,basicstyle=\ttfamily\footnotesize}
+\lstdefinelanguage{XML}
+{
+  backgroundcolor=\color{gray!20},
+  basicstyle=\ttfamily\ssmall,
+  morestring=[b]",
+  frame=single,
+% morestring=[s]{>}{<},
+  morecomment=[s]{<?}{?>},
+  morecomment=[s]{<!--}{-->},
+  stringstyle=\color{red},
+  identifierstyle=\color{darkblue},
+  keywordstyle=\color{cyan},
+}
 
-% extra thing added to this document to make 
-%\PassOptionsToPackage{draft}{graphicx}
+\definecolor{gray}{rgb}{0.4,0.4,0.4}
+\definecolor{darkblue}{rgb}{0.0,0.0,0.6}
+\definecolor{cyan}{rgb}{0.0,0.6,0.6}
 
+\newcommand{\tikzmark}[1]{\tikz[overlay,remember picture] \node (#1) {};}
+\newcommand*{\DrawArrow}[3][]{%
+    % #1 = draw options
+    % #2 = left point
+    % #3 = right point
+    \begin{tikzpicture}[overlay,remember picture]
+        \draw [-latex, #1] ($(#2)+(0.3em,-1ex)$) to ($(#3)+(0,0.5ex)$);
+    \end{tikzpicture}%
+}
 
-% -----------------------------------------------------------------------------
+\usetheme{Copenhagen}
+\usecolortheme{beaver}
+
+\title{OpenMC Module: <title here>}
+\author{\emph{Computational Reactor Physics Group}}
+\date{\normalsize Department of Nuclear Science and Engineering\\
+                  Massachusetts Institute of Technology}
+% Set Logo
+\logo{\includegraphics[scale=0.2]{src/crpg.png}\hspace*{8cm}
+\includegraphics[scale=0.2,trim=0cm 3.0cm 2.2cm 0cm, clip=true]{src/mitlogo.pdf}}
+
+\usenavigationsymbolstemplate{}
+
+%-------------------------------------------------------------------------------
 \begin{document}
-% -----------------------------------------------------------------------------
+%-------------------------------------------------------------------------------
 
-\frame{\titlepage}
+\frame{\titlepage}\logo{} % remove logo after title page
 
-\section[Outline]{}
-\begin{frame}{Outline}
-  \tableofcontents
-\end{frame}
-
-% -----------------------------------------------------------------------------
-% -----------------------------------------------------------------------------
-\section{SECTION}
-% -----------------------------------------------------------------------------
-\subsection{SUBSECTION}
-
-\begin{frame}{FRAMETITLE}
-  \begin{columns}[c]
-    \column{2.0in}
-      \begin{itemize}
-        \item 1 
-        \item 2
-        \item 3
-      \end{itemize}
-
-    \column{2.0in}
-%      \includegraphics[width=2.0in]{figs/figure.png}
-  \end{columns}
-\end{frame}
-
-\begin{frame}{FRAMETITLE}
-  \begin{itemize}
-      \item 1 
-      \item 2
-      \item 3
-  \end{itemize}
-  \begin{figure}
-    \centering
-%    \includegraphics[width=3.0in]{figs/figure.png}
-  \end{figure}
-\end{frame}
-
-% -----------------------------------------------------------------------------
+%-------------------------------------------------------------------------------
 \end{document}
+%-------------------------------------------------------------------------------

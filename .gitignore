@@ -3,8 +3,10 @@
 *.alg
 *.aux
 *.bbl
+*.binary
 *.blg
 *.dvi
+*.endf
 *.fdb_latexmk
 *.glg
 *.glo
@@ -20,6 +22,7 @@
 *.mtc
 *.mtc0
 *.nav
+*.nji
 *.nlo
 *.out
 *.pdfsync

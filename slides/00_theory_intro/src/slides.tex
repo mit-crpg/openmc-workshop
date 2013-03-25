@@ -186,6 +186,46 @@
 
 \begin{columns}
 \begin{column}{0.5\linewidth}
+\only<1,3->{
+\begin{tikzpicture}
+  \shade[shading=axis, bottom color=red, top color=white, shading angle=90] (-3.0cm,0.0cm) rectangle (0.0cm,4.0cm);
+  \shade[shading=axis, bottom color=blue, top color=white, shading angle=-90] (0.0cm,0.0cm) rectangle (3.0cm,4.0cm);
+  \node at (-1.5cm,3.75cm) {Region 1};
+  \node at ( 1.5cm,3.75cm) {Region 2};
+  \draw[<->,very thick] (-3.0cm,0.0cm) -- (3.0cm,0.0cm);
+  \draw[very thick] (0.0cm,0.0cm) -- (0.0cm,4.0cm);
+        \tikzstyle{nucleon}=[shape = circle, shading=ball,
+                             minimum size=0.25cm, ball color=green];
+        \tikzstyle{nucleonblack}=[draw=black, fill=black,shape = circle,
+                             minimum size=0.25cm, color=black];
+
+        \node[nucleon] at (-2.8cm,0.3cm) {};
+  \only<3->{
+        \node[nucleonblack] at (-2.8cm,0.3cm) {};
+  }
+  \only<3>{
+        \draw[->,color=orange,very thick] (-2.6cm,0.35cm) -- (2.0cm,1.5cm);
+        \node[nucleon] at (2.2cm,1.58cm) {};
+  }
+  \only<4->{
+        \node[nucleonblack] at (2.2cm,1.58cm) {};
+        \draw[dashed,color=gray,very thick] (-2.6cm,0.35cm) -- (0.0cm,1.0cm);
+  }
+  \only<4>{
+        \draw[->,color=orange,very thick] (2.0cm,1.5cm) -- (0.2cm,1.05cm);
+        \node[nucleon] at (0.0cm,1.0cm) {};
+  }
+  \only<5->{
+        \draw[dashed,color=gray,very thick] (2.0cm,1.5cm) -- (0.2cm,1.05cm);
+        \node[nucleonblack] at (0.0cm,1.0cm) {};
+  }
+  \only<5>{
+        \draw[->,color=orange,very thick] (0.2cm,1.05cm) -- (1.15cm,1.3cm);
+        \node[nucleon] at (1.3cm,1.33cm) {};
+  }
+\end{tikzpicture}
+}
+\only<2>{
 \begin{tikzpicture}[domain=0:4]
     \draw[very thin,color=gray] (-0.1,-1.1) grid (3.9,3.9);
     \draw[->] (-0.2,0) -- (4.2,0) node[right] {$x$};
@@ -193,17 +233,17 @@
     \fill[fill=yellow!20] plot[id=exp] function{3.0*exp(-x)} --
     (4,0) -- (0,0) -- cycle;
     \draw[color=red] plot[id=exp] function{3.0*exp(-x)};
-\end{tikzpicture}
+\end{tikzpicture}}
 \end{column}
 \begin{column}{0.5\linewidth}
 
   \begin{itemize}
-    \item Neutrons are sampled from:
-    \[ p(x)dx = \Sigma_t e^{-\Sigma_t x}dx\]
+    \item {\only<1>{\color{red}}Neutron is born or exits collision}\vfill
+    \item {\only<2>{\color{red}}Neutrons are sampled from:
+    \[ p(x)dx = \Sigma_t e^{-\Sigma_t x}dx\]}
     \vfill
-    \item Neutrons are sampled from this distribution\vfill
-    \item If a surface is crossed, neutron is resampled from this surface\vfill
-    \item If a surface is not crossed, a neutron has collided
+    \item {\only<3>{\color{red}}If a surface is crossed}, {\only<4>{\color{red}}neutron is resampled from this surface}\vfill
+    \item {\only<5>{\color{red}}If a surface is not crossed, a neutron has collided}
   \end{itemize}
 
 \end{column}
@@ -229,14 +269,14 @@
     
         % Draw coils
         \draw[snake=coil,segment aspect=0,very thick,segment length=20pt,
-              line before snake=1mm,line after snake=1mm,draw=black!50]
-              (N1) -> (I1) node [pos=0.5] {\color{orange}?};
+              line before snake=1mm,line after snake=1mm,->,draw=black!50]
+              (N1) -> (1.5cm,1.7cm) node [pos=0.5,yshift=0.1cm] {\color{orange}?};
         \draw[snake=coil,segment aspect=0,very thick,segment length=20pt,
               line before snake=1mm,line after snake=1mm,->,draw=black!50]
-              (N1) -> (I2) node [pos=0.5] {\color{orange}?};
+              (N1) -> (1.4cm,0.0cm) node [pos=0.5,yshift=0.1cm] {\color{orange}?};
         \draw[snake=coil,segment aspect=0,very thick,segment length=20pt,
               line before snake=1mm,line after snake=1mm,->,draw=black!50]
-              (N1) -> (I3) node [pos=0.5] {\color{orange}?};
+              (N1) -> (1.5cm,-1.8cm) node [pos=0.5,yshift=0.1cm] {\color{orange}?};
 
         % Draw incoming neutron
         \node[nucleon] at (N1) {n};
@@ -407,6 +447,9 @@
         \newframe
       }
     \end{animateinline}
+    \begin{tikzpicture}[overlay]
+      \node at (-4.2cm,1.0cm) {\color{blue}All these batches should be discarded!};
+    \end{tikzpicture}
   \end{center}
 \end{frame}
 

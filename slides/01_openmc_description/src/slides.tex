@@ -302,8 +302,6 @@ sudo make install
     \vfill
     \item<1-> Creating geometry plots --- \textbf{plots.xml}
     \vfill
-    \item<1-> Setting CMFD parameters --- \textbf{cmfd.xml}
-    \vfill
     \end{itemize}
   \end{itemize}
 \end{frame}
@@ -350,11 +348,42 @@ sudo make install
 
 %-------------------------------------------------------------------------------
 
-\begin{frame}{Running a simulation}
+\begin{frame}{Configure Cross Section Data}
+
+  \begin{itemize}
+    \item Download cross section data from website\vfill
+    \item In this directory you will find a \texttt{cross\_sections.xml}\vfill
+    \item Open this file and change directory absolute path to your current directory path
+      \begin{itemize}
+         \item You can type \texttt{echo \$PWD} to determine this
+      \end{itemize}\vfill
+    \item Set up cross section environmental variable
+      \begin{itemize}
+         \item \texttt{export CROSS\_SECTIONS=\$PWD/cross\_sections.xml}
+      \end{itemize}
+  
+  \end{itemize}
+\end{frame}
+
+%-------------------------------------------------------------------------------
+
+\begin{frame}{Running your first simulation}
   \begin{itemize}
   \item<1-> Executable compiled
-  \item<1-> Directory with XML files
-  \item<1-> \texttt{openmc [/path/to/directory]}
+    \begin{itemize}
+      \item Download source code from website
+      \item Navigate to \texttt{src} directory
+      \item Type \texttt{make}
+    \end{itemize}\vfill
+  \item<1-> Navigate to directory with XML input files
+    \begin{itemize}
+      \item Navigate to \texttt{examples} directory: \texttt{cd ../examples}
+      \item Go into \texttt{basic}: \texttt{cd basic}
+    \end{itemize}\vfill
+  \item<1-> Run OpenMC to make sure code compiled correctly
+     \begin{itemize}
+       \item \texttt{cd ../../src/openmc}
+     \end{itemize}
   \end{itemize}
 \end{frame}
 

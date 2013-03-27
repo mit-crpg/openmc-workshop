@@ -126,14 +126,15 @@
     \item<1-> Assume $\partial\psi / \partial t = 0$ and scale fission term
       \begin{equation*}
         \begin{split}
-          \hat{\Omega} \cdot \nabla \psi_k &+ \Sigma_t(\mathbf{r},E)
-          \psi_k(\mathbf{r},\hat\Omega,E) = \\ &\iint dE' d\Omega'
-          \Sigma_s(\mathbf{r},\hat\Omega\cdot\hat\Omega',E'\to
-          E)\psi_k(\mathbf{r},\hat\Omega',E') \\ &+ \frac{1}{k} \frac{\chi(E)}{4\pi}
+          \boldsymbol{\Omega} \cdot \nabla \psi_k &+ \Sigma_t(\mathbf{r},E)
+          \psi_k(\mathbf{r},\boldsymbol\Omega,E) = \\ &\iint dE' d\Omega'
+          \Sigma_s(\mathbf{r},\boldsymbol\Omega\cdot\boldsymbol\Omega',E'\to
+          E)\psi_k(\mathbf{r},\boldsymbol\Omega',E') \\ &+ \frac{1}{k} \frac{\chi(E)}{4\pi}
           \int dE' \nu \Sigma_f(\mathbf{r},E')\phi_k(\mathbf{r},E')
         \end{split}
       \end{equation*}\vfill
     \item<1-> Eigenvalue problem for $k$ and $\psi_k$\vfill
+      \begin{itemize} \item where $\phi_k = \int d\Omega\psi_k(\boldsymbol\Omega)$ \end{itemize}
     \item<1-> Monte Carlo method invovles simulating individual neutrons\vfill
     \item<1-> Random numbers are sampled from probability distributions that
               represent physics 
@@ -146,11 +147,12 @@
 \begin{frame}{Cross Section Data Needed}
 
   \begin{itemize}
+    \small
     \item<1-> Microscopic cross sections and other physics laws are input into
               Monte Carlo codes\vfill
     \item<1-> Data contained in ACE-formatted files\vfill
     \item<1-> These files are commonly generated with NJOY proecessing code\vfill
-    \item<1-> Currently can be obtained via MCNP/Serpent Software
+    \item<1-> Currently can be obtained via MCNP/Serpent Software or directly from NEA (JEFF)
     \vfill
     \begin{center}
       \includegraphics[scale=0.55]{../src/U235xs.pdf}
@@ -298,8 +300,8 @@
   \draw[color=black,very thick] (-5.0cm,0.0cm) -- (5.0cm,0.0cm);
   \draw[color=black,very thick] (-5.0cm,-0.1cm) -- (-5.0cm,0.1cm) node [yshift=-0.4cm] {0.0};
   \draw[color=black,very thick] (5.0cm,-0.1cm) -- (5.0cm,0.1cm) node [yshift=-0.4cm] {1.0};
-  \draw[color=black,very thick] (-1.0cm,-0.1cm) -- (-1.0cm,0.1cm) node [yshift=-0.5cm] {$\frac{\Sigma_{U238}}{\sum_i\Sigma_i}$};
-  \draw[color=black,very thick] (2.0cm,-0.1cm) -- (2.0cm,0.1cm) node [yshift=-0.5cm] {$\frac{\Sigma_{U238}+\Sigma_{U235}}{\sum_i\Sigma_i}$};
+  \draw[color=black,very thick] (-1.0cm,-0.1cm) -- (-1.0cm,0.1cm) node [yshift=-0.6cm] {$\frac{\Sigma_{U238}}{\sum_i\Sigma_i}$};
+  \draw[color=black,very thick] (2.0cm,-0.1cm) -- (2.0cm,0.1cm) node [yshift=-0.6cm] {$\frac{\Sigma_{U238}+\Sigma_{U235}}{\sum_i\Sigma_i}$};
   \node at (-3.0cm,-0.4cm) {U-238};
   \node at (0.5cm,-0.4cm) {U-235};
   \node at (3.5cm,-0.4cm) {O-16};
@@ -344,10 +346,10 @@
   \draw[color=black,very thick] (-5.0cm,0.0cm) -- (5.0cm,0.0cm);
   \draw[color=black,very thick] (-5.0cm,-0.1cm) -- (-5.0cm,0.1cm) node [yshift=-0.4cm] {0.0};
   \draw[color=black,very thick] (5.0cm,-0.1cm) -- (5.0cm,0.1cm) node [yshift=-0.4cm] {1.0};
-  \draw[color=black,very thick] (-3.0cm,-0.1cm) -- (-3.0cm,0.1cm) node [yshift=-0.5cm] {$\frac{\sigma_{el}}{\sigma_t}$};
-  \draw[color=black,very thick] (0.0cm,-0.1cm) -- (0.0cm,0.1cm) node [yshift=-0.5cm] {$\frac{\sigma_{el}+\sigma_{in}}{\sigma_t}$};
-  \draw[color=black,very thick] (0.0cm,-0.1cm) -- (0.0cm,0.1cm) node [yshift=-0.5cm] {$\frac{\sigma_{el}+\sigma_{in}}{\sigma_t}$};
-  \draw[color=black,very thick] (2.0cm,-0.1cm) -- (2.0cm,0.1cm) node [yshift=-0.5cm] {$\frac{\sigma_{el}+\sigma_{in}+\sigma_{c}}{\sigma_t}$};
+  \draw[color=black,very thick] (-3.0cm,-0.1cm) -- (-3.0cm,0.1cm) node [yshift=-0.6cm] {$\frac{\sigma_{el}}{\sigma_t}$};
+  \draw[color=black,very thick] (0.0cm,-0.1cm) -- (0.0cm,0.1cm) node [yshift=-0.6cm] {$\frac{\sigma_{el}+\sigma_{in}}{\sigma_t}$};
+  \draw[color=black,very thick] (0.0cm,-0.1cm) -- (0.0cm,0.1cm) node [yshift=-0.6cm] {$\frac{\sigma_{el}+\sigma_{in}}{\sigma_t}$};
+  \draw[color=black,very thick] (2.0cm,-0.1cm) -- (2.0cm,0.1cm) node [yshift=-0.6cm] {$\frac{\sigma_{el}+\sigma_{in}+\sigma_{c}}{\sigma_t}$};
 \end{tikzpicture}
 \DrawArrow[cyan, thick, out=-30, in=30]{start}{end}
 \end{center}
@@ -378,6 +380,7 @@
     real(8)    :: E      ! energy
   end type Bank
   \end{lstlisting} 
+  \item \alert{Note:} $w$ is the statistical neutron weight
 \end{itemize}
 
 \end{frame}
@@ -390,19 +393,19 @@
 
     \item Analog
 \[
-    k_{ana} = \frac{\sum_{i\in\rm{bank}}w_i}{W}
+    k_{ana} = \sum_{i\in\rm{bank}}\frac{w_i}{W}
 \]
     \item Collision
 \[
-    k_{col} = \sum\frac{w_i\nu\Sigma_{f}}{W\Sigma_{t}}
+    k_{col} = \sum_i\frac{w_i\nu\Sigma_{f}}{W\Sigma_{t}}
 \]
     \item Absorption
 \[
-    k_{abs} = \sum\frac{w_i\nu\Sigma_{f}}{W\Sigma_{a}}
+    k_{abs} = \sum_i\frac{w_i\nu\Sigma_{f}}{W\Sigma_{a}}
 \]
     \item Track-length
 \[
-    k_{track} = \sum\frac{w_i\nu\Sigma_{f}d}{W}
+    k_{track} = \sum_i\frac{w_i\nu\Sigma_{f}d}{W}
 \]
   \end{itemize}
 
@@ -419,7 +422,7 @@
 \[
       {\rm{tally}} = \sum_{i\in\rm{events}}\frac{R_iw_i\phi_i}{W}
 \]\vfill
-    \item $w_i$: neutron statistical weight
+    \item $w_i$: neutron statistical weight, where $W$ is total starting weight
     \item $R_i$: response function (flux=1, reaction rates=$\Sigma$)
     \item $\phi$: estimator (analog=1, collision=$\Sigma_t^{-1}$, track=$d$)
   \end{itemize}

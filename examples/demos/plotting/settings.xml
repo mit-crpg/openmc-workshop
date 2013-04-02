@@ -1,32 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <settings>
 
-  <!-- Path for cross section library -->
   <cross_sections> 
-    /home/shared/mcnpdata/binary/cross_sections.xml
+   cross_sections.xml
   </cross_sections>
 
   <!-- Parameters for criticality calculation -->
-  <criticality batches="350" generations_per_batch="1" inactive="250" particles="4000000" />
+  <eigenvalue>
+    <batches>8</batches>
+    <inactive>1</inactive>
+    <particles>1000</particles>
+  </eigenvalue>
 
   <!-- How verbose output should be -->
   <verbosity value="7" />
 
-  <!-- How often to save statepoint files -->
-  <state_point interval="10" />
-
   <!-- Starting source -->
   <source>
     <space type="box">
-      <parameters>-10 -10 -10 10 10 10</parameters>
+      <parameters>-1 -1 -1  1  1  1</parameters>
     </space>
   </source>
   
-  <!-- Shannon Entropy -->
-  <entropy>
-    <dimension> 100 100 100 </dimension>
-    <lower_left> -50 -50 -50</lower_left>
-    <upper_right> 50 50 50</upper_right>
-  </entropy>
-
 </settings>

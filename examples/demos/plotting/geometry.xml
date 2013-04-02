@@ -1,33 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <geometry>
 
-  <!-- CASE 5 FUEL ASSEMBLY -->
-  <lattice id="11" type="rectangular" dimension="15 15">
-    <lower_left> -12.2682 -12.2682 </lower_left>
-    <width>    1.63576 1.63576 </width>
-    <universes>
-      2 2 2 2 2 2 2 2 2 2 2 2 2 2 2
-      2 2 2 2 2 2 2 2 2 2 2 2 2 2 2
-      2 2 2 2 2 1 2 2 2 1 2 2 2 2 2
-      2 2 2 3 2 2 2 2 2 2 2 3 2 2 2
-      2 2 2 2 2 2 2 2 2 2 2 2 2 2 2
-      2 2 1 2 2 1 2 2 2 1 2 2 1 2 2
-      2 2 2 2 2 2 2 2 2 2 2 2 2 2 2
-      2 2 2 2 2 2 2 1 2 2 2 2 2 2 2
-      2 2 2 2 2 2 2 2 2 2 2 2 2 2 2
-      2 2 1 2 2 1 2 2 2 1 2 2 1 2 2
-      2 2 2 2 2 2 2 2 2 2 2 2 2 2 2
-      2 2 2 3 2 2 2 2 2 2 2 3 2 2 2
-      2 2 2 2 2 1 2 2 2 1 2 2 2 2 2
-      2 2 2 2 2 2 2 2 2 2 2 2 2 2 2
-      2 2 2 2 2 2 2 2 2 2 2 2 2 2 2
-    </universes>
-  </lattice>
-  <cell id="111" universe="111" fill="11" surfaces="-99"/>
-
-
-<!-- CORE XI configuration   -->
-<!-- (common for all cases)  -->
+<!-- Based on ISCBEP model for leu-comp-therm-008 benchmarks (see LA-UR-10-06230) -->
 
     <!-- pin-cell surfaces -->
 
@@ -65,132 +39,94 @@
       <cell id="43" universe="4" material="1" surfaces="   7"/>  <!-- water -->
 
 
-    <!-- Assembly construction -->
+  <!-- Assembly construction -->
 
-      <!-- Water Assembly -->
+    <!-- Dummy Water Assembly Universe -->
       <cell id="99" universe="999" fill="1" surfaces="-99"/>
 
-      <!-- Driver Assembly 13 -->
-      <lattice id="13" type="rectangular" dimension="15 15">
-        <lower_left> -12.2682 -12.2682 </lower_left>
-        <width>    1.63576 1.63576 </width>
-        <universes>
-          1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
-          1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
-          1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
-          1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
-          1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
-          1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
-          1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
-          1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
-          1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
-          1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
-          1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
-          1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
-          1 1 1 1 1 1 1 1 1 1 1 1 2 2 2
-          1 1 1 1 1 1 1 1 1 1 1 1 2 2 2
-          1 1 1 1 1 1 1 1 1 1 1 1 2 2 2
-        </universes>
-      </lattice>
-      <cell id="130" universe="130" fill="13" surfaces="-99"/>
+    <!-- Central Fuel Assemblies -->
 
-      <!-- Driver Assembly 14 -->
-      <lattice id="14" type="rectangular" dimension="15 15">
+      <!-- Central Fuel Assembly -->      
+      <lattice id="11" type="rectangular" dimension="15 15">
         <lower_left> -12.2682 -12.2682 </lower_left>
         <width>    1.63576 1.63576 </width>
         <universes>
-          1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
-          1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
-          1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
-          1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
-          1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
-          1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
-          1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
-          1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
-          1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
-          1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
-          1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
-          1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
           2 2 2 2 2 2 2 2 2 2 2 2 2 2 2
+          2 2 2 2 2 2 2 2 2 2 2 2 2 2 2
+          2 2 2 2 2 1 2 2 2 1 2 2 2 2 2
+          2 2 2 3 2 2 2 2 2 2 2 3 2 2 2
+          2 2 2 2 2 2 2 2 2 2 2 2 2 2 2
+          2 2 1 2 2 1 2 2 2 1 2 2 1 2 2
+          2 2 2 2 2 2 2 2 2 2 2 2 2 2 2
+          2 2 2 2 2 2 2 1 2 2 2 2 2 2 2
+          2 2 2 2 2 2 2 2 2 2 2 2 2 2 2
+          2 2 1 2 2 1 2 2 2 1 2 2 1 2 2
+          2 2 2 2 2 2 2 2 2 2 2 2 2 2 2
+          2 2 2 3 2 2 2 2 2 2 2 3 2 2 2
+          2 2 2 2 2 1 2 2 2 1 2 2 2 2 2
           2 2 2 2 2 2 2 2 2 2 2 2 2 2 2
           2 2 2 2 2 2 2 2 2 2 2 2 2 2 2
         </universes>
       </lattice>
-      <cell id="140" universe="140" fill="14" surfaces="-99"/>
-
-      <!-- Driver Assembly 15 -->
-      <lattice id="15" type="rectangular" dimension="15 15">
-        <lower_left> -12.2682 -12.2682 </lower_left>
-        <width>    1.63576 1.63576 </width>
-        <universes>
-          1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
-          1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
-          1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
-          1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
-          1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
-          1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
-          1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
-          1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
-          1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
-          1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
-          1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
-          1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
-          2 2 2 1 1 1 1 1 1 1 1 1 1 1 1
-          2 2 2 1 1 1 1 1 1 1 1 1 1 1 1
-          2 2 2 1 1 1 1 1 1 1 1 1 1 1 1
-        </universes>
-      </lattice>
-      <cell id="150" universe="150" fill="15" surfaces="-99"/>
-
-      <!-- Driver Assembly 22 -->
+      <cell id="111" universe="111" fill="11" surfaces=""/>
+      
+      <!-- North Fuel Assembly -->      
       <lattice id="22" type="rectangular" dimension="15 15">
         <lower_left> -12.2682 -12.2682 </lower_left>
         <width>    1.63576 1.63576 </width>
         <universes>
-          1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
-          1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
-          1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
-          1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
-          1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
-          1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
-          1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
-          1 1 1 1 1 1 1 2 2 2 2 2 2 2 2
-          1 1 1 1 1 1 1 2 2 2 2 2 2 2 2
-          1 1 1 1 1 1 1 2 2 2 2 2 2 2 2
-          1 1 1 1 1 1 1 2 2 2 2 2 2 2 2
-          1 1 1 1 1 1 1 2 2 2 2 2 2 2 2
-          1 1 1 1 1 1 1 2 2 2 2 2 2 2 2
-          1 1 1 1 1 1 1 2 2 2 2 2 2 2 2
-          1 1 1 1 1 1 1 2 2 2 2 2 2 2 2
+          2 2 2 2 2 2 2 2 2 2 2 2 2 2 2
+          2 2 2 2 2 2 2 2 2 2 2 2 2 2 2
+          2 2 2 2 2 1 2 2 2 1 2 2 2 2 2
+          2 2 2 1 2 2 2 2 2 2 2 1 2 2 2
+          2 2 2 2 2 2 2 2 2 2 2 2 2 2 2
+          2 2 1 2 2 1 2 2 2 1 2 2 1 2 2
+          2 2 2 2 2 2 2 2 2 2 2 2 2 2 2
+          2 2 2 2 2 2 2 1 2 2 2 2 2 2 2
+          2 2 2 2 2 2 2 2 2 2 2 2 2 2 2
+          2 2 1 2 2 1 2 2 2 1 2 2 1 2 2
+          2 2 2 2 2 2 2 2 2 2 2 2 2 2 2
+          2 2 2 3 2 2 2 2 2 2 2 3 2 2 2
+          2 2 2 2 2 1 2 2 2 1 2 2 2 2 2
+          2 2 2 2 2 2 2 2 2 2 2 2 2 2 2
+          2 2 2 2 2 2 2 2 2 2 2 2 2 2 2
         </universes>
       </lattice>
-      <cell id="220" universe="220" fill="22" surfaces="-99"/>
-
-      <!-- Driver Assembly 23 -->
-      <lattice id="23" type="rectangular" dimension="15 15">
+      <cell id="222" universe="222" fill="22" surfaces=""/>                     <!-- north -->
+      <cell id="444" universe="444" fill="222" surfaces="" rotation="0 0 90"/>  <!-- west  -->
+      <cell id="555" universe="555" fill="222" surfaces="" rotation="0 0 180"/> <!-- south -->
+      <cell id="666" universe="666" fill="222" surfaces="" rotation="0 0 270"/> <!-- east  -->
+      
+      <!-- Northeast Fuel Assembly -->      
+      <lattice id="33" type="rectangular" dimension="15 15">
         <lower_left> -12.2682 -12.2682 </lower_left>
         <width>    1.63576 1.63576 </width>
         <universes>
-          1 1 1 1 1 1 1 1 1 1 1 1 2 2 2
-          1 1 1 1 1 1 1 1 1 1 1 1 2 2 2
-          1 1 2 2 2 2 2 2 2 2 2 2 2 2 2
-          1 1 2 2 2 2 2 2 2 2 2 2 2 2 2
-          1 1 2 2 2 2 2 2 2 2 2 2 2 2 2
-          1 1 2 2 2 2 2 2 2 2 2 2 2 2 2
-          1 1 2 2 2 2 2 2 2 2 2 2 2 2 2
           2 2 2 2 2 2 2 2 2 2 2 2 2 2 2
           2 2 2 2 2 2 2 2 2 2 2 2 2 2 2
+          2 2 2 2 2 1 2 2 2 1 2 2 2 2 2
+          2 2 2 1 2 2 2 2 2 2 2 1 2 2 2
           2 2 2 2 2 2 2 2 2 2 2 2 2 2 2
+          2 2 1 2 2 1 2 2 2 1 2 2 1 2 2
           2 2 2 2 2 2 2 2 2 2 2 2 2 2 2
+          2 2 2 2 2 2 2 1 2 2 2 2 2 2 2
           2 2 2 2 2 2 2 2 2 2 2 2 2 2 2
+          2 2 1 2 2 1 2 2 2 1 2 2 1 2 2
           2 2 2 2 2 2 2 2 2 2 2 2 2 2 2
+          2 2 2 3 2 2 2 2 2 2 2 1 2 2 2
+          2 2 2 2 2 1 2 2 2 1 2 2 2 2 2
           2 2 2 2 2 2 2 2 2 2 2 2 2 2 2
           2 2 2 2 2 2 2 2 2 2 2 2 2 2 2
         </universes>
       </lattice>
-      <cell id="230" universe="230" fill="23" surfaces="-99"/>
+      <cell id="333" universe="333" fill="33" surfaces=""/>                     <!-- northeast -->
+      <cell id="777" universe="777" fill="333" surfaces="" rotation="0 0 90"/>  <!-- northwest -->
+      <cell id="888" universe="888" fill="333" surfaces="" rotation="0 0 180"/> <!-- southwest -->
+      <cell id="998" universe="998" fill="333" surfaces="" rotation="0 0 270"/> <!-- southeast -->
 
-      <!-- Driver Assembly 24 -->
+    <!-- Surrounding Driver Assemblies -->
+
+      <!-- Full Driver Assembly -->
       <lattice id="24" type="rectangular" dimension="15 15">
         <lower_left> -12.2682 -12.2682 </lower_left>
         <width>    1.63576 1.63576 </width>
@@ -214,7 +150,61 @@
       </lattice>
       <cell id="240" universe="240" fill="24" surfaces="-99"/>
 
-      <!-- Driver Assembly 25 -->
+      <!-- North Edge -->
+      <lattice id="14" type="rectangular" dimension="15 15">
+        <lower_left> -12.2682 -12.2682 </lower_left>
+        <width>    1.63576 1.63576 </width>
+        <universes>
+          1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
+          1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
+          1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
+          1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
+          1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
+          1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
+          1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
+          1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
+          1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
+          1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
+          1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
+          1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
+          2 2 2 2 2 2 2 2 2 2 2 2 2 2 2
+          2 2 2 2 2 2 2 2 2 2 2 2 2 2 2
+          2 2 2 2 2 2 2 2 2 2 2 2 2 2 2
+        </universes>
+      </lattice>
+      <cell id="140" universe="140" fill="14" surfaces=""/>                     <!-- north -->
+      <cell id="410" universe="410" fill="140" surfaces="" rotation="0 0 90"/>  <!-- east  -->
+      <cell id="740" universe="740" fill="140" surfaces="" rotation="0 0 180"/> <!-- south -->
+      <cell id="470" universe="470" fill="140" surfaces="" rotation="0 0 270"/> <!-- west  -->
+
+      <!-- Northeast Edge Corner -->
+      <lattice id="15" type="rectangular" dimension="15 15">
+        <lower_left> -12.2682 -12.2682 </lower_left>
+        <width>    1.63576 1.63576 </width>
+        <universes>
+          1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
+          1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
+          1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
+          1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
+          1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
+          1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
+          1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
+          1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
+          1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
+          1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
+          1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
+          1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
+          2 2 2 1 1 1 1 1 1 1 1 1 1 1 1
+          2 2 2 1 1 1 1 1 1 1 1 1 1 1 1
+          2 2 2 1 1 1 1 1 1 1 1 1 1 1 1
+        </universes>
+      </lattice>
+      <cell id="150" universe="150" fill="15" surfaces=""/>                     <!-- northeast -->
+      <cell id="130" universe="130" fill="150" surfaces="" rotation="0 0 90"/>  <!-- northwest -->
+      <cell id="510" universe="510" fill="150" surfaces="" rotation="0 0 180"/> <!-- southwest -->
+      <cell id="570" universe="570" fill="150" surfaces="" rotation="0 0 270"/> <!-- southeast -->
+
+      <!-- Northeast Top Steps -->
       <lattice id="25" type="rectangular" dimension="15 15">
         <lower_left> -12.2682 -12.2682 </lower_left>
         <width>    1.63576 1.63576 </width>
@@ -236,9 +226,13 @@
           2 2 2 2 2 2 2 2 2 2 2 2 2 2 2
         </universes>
       </lattice>
-      <cell id="250" universe="250" fill="25" surfaces="-99"/>
+      <cell id="250" universe="250" fill="25" surfaces=""/>                     <!-- northeast -->
+      <cell id="320" universe="320" fill="250" surfaces="" rotation="0 0 90"/>  <!-- northwest -->
+      <cell id="630" universe="630" fill="250" surfaces="" rotation="0 0 180"/> <!-- southwest -->
+      <cell id="560" universe="560" fill="250" surfaces="" rotation="0 0 270"/> <!-- southeast -->
 
-      <!-- Driver Assembly 26 -->
+
+      <!-- Northeast Middle Corner -->
       <lattice id="26" type="rectangular" dimension="15 15">
         <lower_left> -12.2682 -12.2682 </lower_left>
         <width>    1.63576 1.63576 </width>
@@ -260,33 +254,12 @@
           2 2 2 2 2 2 2 2 1 1 1 1 1 1 1 
         </universes>
       </lattice>
-      <cell id="260" universe="260" fill="26" surfaces="-99"/>
+      <cell id="260" universe="260" fill="26" surfaces=""/>                     <!-- northeast -->
+      <cell id="220" universe="220" fill="260" surfaces="" rotation="0 0 90"/>  <!-- southeast -->
+      <cell id="620" universe="620" fill="260" surfaces="" rotation="0 0 180"/> <!-- southwest -->
+      <cell id="660" universe="660" fill="260" surfaces="" rotation="0 0 270"/> <!-- northwest -->
 
-      <!-- Driver Assembly 32 -->
-      <lattice id="32" type="rectangular" dimension="15 15">
-        <lower_left> -12.2682 -12.2682 </lower_left>
-        <width>    1.63576 1.63576 </width>
-        <universes>
-          1 1 1 1 1 1 1 2 2 2 2 2 2 2 2
-          1 1 1 1 1 1 1 2 2 2 2 2 2 2 2
-          1 1 2 2 2 2 2 2 2 2 2 2 2 2 2
-          1 1 2 2 2 2 2 2 2 2 2 2 2 2 2
-          1 1 2 2 2 2 2 2 2 2 2 2 2 2 2
-          1 1 2 2 2 2 2 2 2 2 2 2 2 2 2
-          1 1 2 2 2 2 2 2 2 2 2 2 2 2 2
-          1 1 2 2 2 2 2 2 2 2 2 2 2 2 2
-          1 1 2 2 2 2 2 2 2 2 2 2 2 2 2
-          1 1 2 2 2 2 2 2 2 2 2 2 2 2 2
-          1 1 2 2 2 2 2 2 2 2 2 2 2 2 2
-          1 1 2 2 2 2 2 2 2 2 2 2 2 2 2
-          2 2 2 2 2 2 2 2 2 2 2 2 2 2 2
-          2 2 2 2 2 2 2 2 2 2 2 2 2 2 2
-          2 2 2 2 2 2 2 2 2 2 2 2 2 2 2
-        </universes>
-      </lattice>
-      <cell id="320" universe="320" fill="32" surfaces="-99"/>
-
-      <!-- Driver Assembly 36 -->
+      <!-- Northeast Bottom Steps -->
       <lattice id="36" type="rectangular" dimension="15 15">
         <lower_left> -12.2682 -12.2682 </lower_left>
         <width>    1.63576 1.63576 </width>
@@ -308,298 +281,37 @@
           2 2 2 2 2 2 2 2 2 2 2 2 2 2 2
         </universes>
       </lattice>
-      <cell id="360" universe="360" fill="36" surfaces="-99"/>
-
-      <!-- Driver Assembly 41  -->
-      <lattice id="41" type="rectangular" dimension="15 15">
-        <lower_left> -12.2682 -12.2682 </lower_left>
-        <width>    1.63576 1.63576 </width>
-        <universes>
-          1 1 1 1 1 1 1 1 1 1 1 1 2 2 2
-          1 1 1 1 1 1 1 1 1 1 1 1 2 2 2
-          1 1 1 1 1 1 1 1 1 1 1 1 2 2 2
-          1 1 1 1 1 1 1 1 1 1 1 1 2 2 2
-          1 1 1 1 1 1 1 1 1 1 1 1 2 2 2
-          1 1 1 1 1 1 1 1 1 1 1 1 2 2 2
-          1 1 1 1 1 1 1 1 1 1 1 1 2 2 2
-          1 1 1 1 1 1 1 1 1 1 1 1 2 2 2
-          1 1 1 1 1 1 1 1 1 1 1 1 2 2 2
-          1 1 1 1 1 1 1 1 1 1 1 1 2 2 2
-          1 1 1 1 1 1 1 1 1 1 1 1 2 2 2
-          1 1 1 1 1 1 1 1 1 1 1 1 2 2 2
-          1 1 1 1 1 1 1 1 1 1 1 1 2 2 2
-          1 1 1 1 1 1 1 1 1 1 1 1 2 2 2
-          1 1 1 1 1 1 1 1 1 1 1 1 2 2 2
-        </universes>
-      </lattice>
-      <cell id="410" universe="410" fill="41" surfaces="-99"/>
-
-      <!-- Driver Assembly 47  -->
-      <lattice id="47" type="rectangular" dimension="15 15">
-        <lower_left> -12.2682 -12.2682 </lower_left>
-        <width>    1.63576 1.63576 </width>
-        <universes>
-          2 2 2 1 1 1 1 1 1 1 1 1 1 1 1
-          2 2 2 1 1 1 1 1 1 1 1 1 1 1 1
-          2 2 2 1 1 1 1 1 1 1 1 1 1 1 1
-          2 2 2 1 1 1 1 1 1 1 1 1 1 1 1
-          2 2 2 1 1 1 1 1 1 1 1 1 1 1 1
-          2 2 2 1 1 1 1 1 1 1 1 1 1 1 1
-          2 2 2 1 1 1 1 1 1 1 1 1 1 1 1
-          2 2 2 1 1 1 1 1 1 1 1 1 1 1 1
-          2 2 2 1 1 1 1 1 1 1 1 1 1 1 1
-          2 2 2 1 1 1 1 1 1 1 1 1 1 1 1
-          2 2 2 1 1 1 1 1 1 1 1 1 1 1 1
-          2 2 2 1 1 1 1 1 1 1 1 1 1 1 1
-          2 2 2 1 1 1 1 1 1 1 1 1 1 1 1
-          2 2 2 1 1 1 1 1 1 1 1 1 1 1 1
-          2 2 2 1 1 1 1 1 1 1 1 1 1 1 1
-        </universes>
-      </lattice>
-      <cell id="470" universe="470" fill="47" surfaces="-99"/>
-
-      <!-- Driver Assembly 51  -->
-      <lattice id="51" type="rectangular" dimension="15 15">
-        <lower_left> -12.2682 -12.2682 </lower_left>
-        <width>    1.63576 1.63576 </width>
-        <universes>
-          1 1 1 1 1 1 1 1 1 1 1 1 2 2 2
-          1 1 1 1 1 1 1 1 1 1 1 1 2 2 2
-          1 1 1 1 1 1 1 1 1 1 1 1 2 2 2
-          1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
-          1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
-          1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
-          1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
-          1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
-          1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
-          1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
-          1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
-          1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
-          1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
-          1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
-          1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
-        </universes>
-      </lattice>
-      <cell id="510" universe="510" fill="51" surfaces="-99"/>
-
-      <!-- Driver Assembly 52 -->
-      <lattice id="52" type="rectangular" dimension="15 15">
-        <lower_left> -12.2682 -12.2682 </lower_left>
-        <width>    1.63576 1.63576 </width>
-        <universes>
-          2 2 2 2 2 2 2 2 2 2 2 2 2 2 2
-          2 2 2 2 2 2 2 2 2 2 2 2 2 2 2
-          2 2 2 2 2 2 2 2 2 2 2 2 2 2 2
-          1 1 2 2 2 2 2 2 2 2 2 2 2 2 2
-          1 1 2 2 2 2 2 2 2 2 2 2 2 2 2
-          1 1 2 2 2 2 2 2 2 2 2 2 2 2 2
-          1 1 2 2 2 2 2 2 2 2 2 2 2 2 2
-          1 1 2 2 2 2 2 2 2 2 2 2 2 2 2
-          1 1 2 2 2 2 2 2 2 2 2 2 2 2 2
-          1 1 2 2 2 2 2 2 2 2 2 2 2 2 2
-          1 1 2 2 2 2 2 2 2 2 2 2 2 2 2
-          1 1 2 2 2 2 2 2 2 2 2 2 2 2 2
-          1 1 2 2 2 2 2 2 2 2 2 2 2 2 2
-          1 1 1 1 1 1 1 2 2 2 2 2 2 2 2
-          1 1 1 1 1 1 1 2 2 2 2 2 2 2 2
-        </universes>
-      </lattice>
-      <cell id="520" universe="520" fill="52" surfaces="-99"/>
-
-      <!-- Driver Assembly 56 -->
-      <lattice id="56" type="rectangular" dimension="15 15">
-        <lower_left> -12.2682 -12.2682 </lower_left>
-        <width>    1.63576 1.63576 </width>
-        <universes>
-          2 2 2 2 2 2 2 2 2 2 2 2 2 2 2
-          2 2 2 2 2 2 2 2 2 2 2 2 2 2 2
-          2 2 2 2 2 2 2 2 2 2 2 2 2 2 2
-          2 2 2 2 2 2 2 2 2 2 2 2 2 1 1
-          2 2 2 2 2 2 2 2 2 2 2 2 2 1 1
-          2 2 2 2 2 2 2 2 2 2 2 2 2 1 1
-          2 2 2 2 2 2 2 2 2 2 2 2 2 1 1
-          2 2 2 2 2 2 2 2 2 2 2 2 2 1 1
-          2 2 2 2 2 2 2 2 2 2 2 2 2 1 1
-          2 2 2 2 2 2 2 2 2 2 2 2 2 1 1
-          2 2 2 2 2 2 2 2 2 2 2 2 2 1 1
-          2 2 2 2 2 2 2 2 2 2 2 2 2 1 1
-          2 2 2 2 2 2 2 2 2 2 2 2 2 1 1
-          2 2 2 2 2 2 2 2 1 1 1 1 1 1 1
-          2 2 2 2 2 2 2 2 1 1 1 1 1 1 1
-        </universes>
-      </lattice>
-      <cell id="560" universe="560" fill="56" surfaces="-99"/>
-
-      <!-- Driver Assembly 57  -->
-      <lattice id="57" type="rectangular" dimension="15 15">
-        <lower_left> -12.2682 -12.2682 </lower_left>
-        <width>    1.63576 1.63576 </width>
-        <universes>
-          2 2 2 1 1 1 1 1 1 1 1 1 1 1 1
-          2 2 2 1 1 1 1 1 1 1 1 1 1 1 1
-          2 2 2 1 1 1 1 1 1 1 1 1 1 1 1
-          1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
-          1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
-          1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
-          1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
-          1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
-          1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
-          1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
-          1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
-          1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
-          1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
-          1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
-          1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
-        </universes>
-      </lattice>
-      <cell id="570" universe="570" fill="57" surfaces="-99"/>
-
-      <!-- Driver Assembly 62 -->
-      <lattice id="62" type="rectangular" dimension="15 15">
-        <lower_left> -12.2682 -12.2682 </lower_left>
-        <width>    1.63576 1.63576 </width>
-        <universes>
-          1 1 1 1 1 1 1 2 2 2 2 2 2 2 2
-          1 1 1 1 1 1 1 2 2 2 2 2 2 2 2
-          1 1 1 1 1 1 1 2 2 2 2 2 2 2 2
-          1 1 1 1 1 1 1 2 2 2 2 2 2 2 2
-          1 1 1 1 1 1 1 2 2 2 2 2 2 2 2
-          1 1 1 1 1 1 1 2 2 2 2 2 2 2 2
-          1 1 1 1 1 1 1 2 2 2 2 2 2 2 2
-          1 1 1 1 1 1 1 2 2 2 2 2 2 2 2
-          1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
-          1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
-          1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
-          1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
-          1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
-          1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
-          1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
-        </universes>
-      </lattice>
-      <cell id="620" universe="620" fill="62" surfaces="-99"/>
-
-      <!-- Driver Assembly 63 -->
-      <lattice id="63" type="rectangular" dimension="15 15">
-        <lower_left> -12.2682 -12.2682 </lower_left>
-        <width>    1.63576 1.63576 </width>
-        <universes>
-          2 2 2 2 2 2 2 2 2 2 2 2 2 2 2
-          2 2 2 2 2 2 2 2 2 2 2 2 2 2 2
-          2 2 2 2 2 2 2 2 2 2 2 2 2 2 2
-          2 2 2 2 2 2 2 2 2 2 2 2 2 2 2
-          2 2 2 2 2 2 2 2 2 2 2 2 2 2 2
-          2 2 2 2 2 2 2 2 2 2 2 2 2 2 2
-          2 2 2 2 2 2 2 2 2 2 2 2 2 2 2
-          2 2 2 2 2 2 2 2 2 2 2 2 2 2 2
-          1 1 2 2 2 2 2 2 2 2 2 2 2 2 2
-          1 1 2 2 2 2 2 2 2 2 2 2 2 2 2
-          1 1 2 2 2 2 2 2 2 2 2 2 2 2 2
-          1 1 2 2 2 2 2 2 2 2 2 2 2 2 2
-          1 1 2 2 2 2 2 2 2 2 2 2 2 2 2
-          1 1 1 1 1 1 1 1 1 1 1 1 2 2 2
-          1 1 1 1 1 1 1 1 1 1 1 1 2 2 2
-        </universes>
-      </lattice>
-      <cell id="630" universe="630" fill="63" surfaces="-99"/>
-
-      <!-- Driver Assembly 65 -->
-      <lattice id="65" type="rectangular" dimension="15 15">
-        <lower_left> -12.2682 -12.2682 </lower_left>
-        <width>    1.63576 1.63576 </width>
-        <universes>
-          2 2 2 2 2 2 2 2 2 2 2 2 2 2 2
-          2 2 2 2 2 2 2 2 2 2 2 2 2 2 2
-          2 2 2 2 2 2 2 2 2 2 2 2 2 2 2
-          2 2 2 2 2 2 2 2 2 2 2 2 2 2 2
-          2 2 2 2 2 2 2 2 2 2 2 2 2 2 2
-          2 2 2 2 2 2 2 2 2 2 2 2 2 2 2
-          2 2 2 2 2 2 2 2 2 2 2 2 2 2 2
-          2 2 2 2 2 2 2 2 2 2 2 2 2 2 2
-          2 2 2 2 2 2 2 2 2 2 2 2 2 1 1
-          2 2 2 2 2 2 2 2 2 2 2 2 2 1 1
-          2 2 2 2 2 2 2 2 2 2 2 2 2 1 1
-          2 2 2 2 2 2 2 2 2 2 2 2 2 1 1
-          2 2 2 2 2 2 2 2 2 2 2 2 2 1 1
-          2 2 2 1 1 1 1 1 1 1 1 1 1 1 1
-          2 2 2 1 1 1 1 1 1 1 1 1 1 1 1
-        </universes>
-      </lattice>
-      <cell id="650" universe="650" fill="65" surfaces="-99"/>
-
-      <!-- Driver Assembly 66 -->
-      <lattice id="66" type="rectangular" dimension="15 15">
-        <lower_left> -12.2682 -12.2682 </lower_left>
-        <width>    1.63576 1.63576 </width>
-        <universes>
-          2 2 2 2 2 2 2 2 1 1 1 1 1 1 1
-          2 2 2 2 2 2 2 2 1 1 1 1 1 1 1 
-          2 2 2 2 2 2 2 2 1 1 1 1 1 1 1 
-          2 2 2 2 2 2 2 2 1 1 1 1 1 1 1 
-          2 2 2 2 2 2 2 2 1 1 1 1 1 1 1 
-          2 2 2 2 2 2 2 2 1 1 1 1 1 1 1 
-          2 2 2 2 2 2 2 2 1 1 1 1 1 1 1 
-          2 2 2 2 2 2 2 2 1 1 1 1 1 1 1
-          1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
-          1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
-          1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
-          1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
-          1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
-          1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
-          1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
-        </universes>
-      </lattice>
-      <cell id="660" universe="660" fill="66" surfaces="-99"/>
-
-      <!-- Driver Assembly 74 -->
-      <lattice id="74" type="rectangular" dimension="15 15">
-        <lower_left> -12.2682 -12.2682 </lower_left>
-        <width>    1.63576 1.63576 </width>
-        <universes>
-          2 2 2 2 2 2 2 2 2 2 2 2 2 2 2
-          2 2 2 2 2 2 2 2 2 2 2 2 2 2 2
-          2 2 2 2 2 2 2 2 2 2 2 2 2 2 2
-          1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
-          1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
-          1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
-          1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
-          1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
-          1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
-          1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
-          1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
-          1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
-          1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
-          1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
-          1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
-        </universes>
-      </lattice>
-      <cell id="740" universe="740" fill="74" surfaces="-99"/>
+      <cell id="360" universe="360" fill="36" surfaces=""/>                     <!-- northeast -->
+      <cell id="230" universe="230" fill="360" surfaces="" rotation="0 0 90"/>  <!-- southeast -->
+      <cell id="520" universe="520" fill="360" surfaces="" rotation="0 0 180"/> <!-- southwest -->
+      <cell id="650" universe="650" fill="360" surfaces="" rotation="0 0 270"/> <!-- northwest -->
 
 
-    <!-- Core construction -->
+  <!-- Core construction -->
 
-      <!-- Core Surfaces -->
-      <surface id="10" type="z-plane"    coeffs="       -81.662" boundary="vacuum"/>
-      <surface id="20" type="z-plane"    coeffs="        81.662" boundary="vacuum"/>
-      <surface id="30" type="z-cylinder" coeffs="0.0 0.0 76.200" />
-      <surface id="40" type="z-cylinder" coeffs="0.0 0.0 77.470" boundary="vacuum"/>
+    <!-- Core Surfaces -->
+    <surface id="10" type="z-plane"    coeffs="       -81.662" boundary="vacuum"/>
+    <surface id="20" type="z-plane"    coeffs="        81.662" boundary="vacuum"/>
+    <surface id="30" type="z-cylinder" coeffs="0.0 0.0 76.200" />
+    <surface id="40" type="z-cylinder" coeffs="0.0 0.0 77.470" boundary="vacuum"/>
 
-      <!-- Core lattice -->
-      <lattice id="99" type="rectangular" dimension="7 7">
-        <lower_left> -85.8774 -85.8774 </lower_left>
-        <width>   24.5364  24.5364 </width>
-        <universes>
-            999 999 130 140 150 999 999
-            999 220 230 240 250 260 999
-            130 320 111 111 111 360 150
-            410 240 111 111 111 240 470
-            510 520 111 111 111 560 570
-            999 620 630 240 650 660 999
-            999 999 510 740 570 999 999
-        </universes>
-      </lattice>
+    <!-- Core lattice -->
+    <lattice id="99" type="rectangular" dimension="7 7">
+      <lower_left> -85.8774 -85.8774 </lower_left>
+      <width>   24.5364  24.5364 </width>
+      <universes>
+          999 999 130 140 150 999 999
+          999 220 230 240 250 260 999
+          130 320 777 222 333 360 150
+          410 240 444 111 666 240 470
+          510 520 888 555 998 560 570
+          999 620 630 240 650 660 999
+          999 999 510 740 570 999 999
+      </universes>
+    </lattice>
 
-      <!-- Core Bounding Cell -->
-      <cell id="1111" universe="0" fill="99"   surfaces="10 -20 -30"/>
-      <cell id="1112" universe="0" material="3" surfaces="30 -40"/>
+    <!-- Core Bounding Cell -->
+    <cell id="1111" universe="0" fill="99"   surfaces="10 -20 -30"/>
+    <cell id="1112" universe="0" material="3" surfaces="30 -40"/>
 
 </geometry>

@@ -10,12 +10,6 @@
 
       <surface id="3"  type="z-cylinder" coeffs="0.0 0.0 0.585000"/>       <!-- pyrex OR      -->
 
-      <surface id="4"  type="z-cylinder" coeffs="0.0 0.0 0.412500"/>       <!-- vicor OR      -->
-      <surface id="5"  type="z-cylinder" coeffs="0.0 0.0 0.557500"/>       <!-- vicor clad OR -->
-
-      <surface id="6"  type="z-cylinder" coeffs="0.0 0.0 0.466500"/>       <!-- al2o3 OR      -->
-      <surface id="7"  type="z-cylinder" coeffs="0.0 0.0 0.555500"/>       <!-- al2o3 clad OR -->
-
       <surface id="99" type="sphere"     coeffs="0.0 0.0 0.0 400.0"/>      <!-- dummy outer boundary -->
 
     <!-- pin-cell construction -->
@@ -306,6 +300,6 @@
 
     <!-- Core Bounding Cell -->
     <cell id="1111" universe="0" fill="99"   surfaces="10 -20 -30"/>
-    <cell id="1112" universe="0" material="3" surfaces="30 -40"/>
+    <cell id="1112" universe="0" material="3" surfaces="10 -20 30 -40"/>
 
 </geometry>

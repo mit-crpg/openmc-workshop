@@ -9,9 +9,9 @@
   <mesh id="1">
     <type>rectangular</type>
     <origin>0.0 0.0 0.0</origin>
-    <upper_right>50 50 50</upper_right>
-    <lower_left>-50 -50 -50</lower_left>
-    <dimension>100 100 100</dimension>
+    <upper_right>85.8774 85.8774 81.662</upper_right>
+    <lower_left>-85.8774 -85.8774 -81.662</lower_left>
+    <dimension>105 105 1</dimension>
   </mesh>
 
 </tallies>

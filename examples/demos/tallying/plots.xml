@@ -1,14 +1,64 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0"?>
 <plots>
 
-  <plot id="1" type="slice" color="mat">
-      <filename>pic_name</filename>
-      <origin> 0 0 0 </origin>
-      <width> 120 120 120 </width>
-      <basis>xy</basis>
-      <pixels>500 500</pixels>
-      <background>255 255 255</background>
-      <col_spec id="1" rgb="198 226 255"/>
+  <!-- Default coloring by material ID-->
+  <plot id="1" type="slice" basis="xy" color="mat">
+    <filename>material_coloring</filename>
+    <origin>0 0 0</origin>
+    <width>155 155</width>
+    <pixels>1000 1000</pixels>
+  </plot>
+
+  <!-- Default coloring by cell ID -->
+  <plot id="2" type="slice" basis="xy" color="cell">
+    <filename>cell_coloring</filename>
+    <origin>0 0 0</origin>
+    <width>155 155</width>
+    <pixels>1000 1000</pixels>
+  </plot>
+  
+  <!-- Orientations can be xy, xz, and yz -->
+  <plot id="3" type="slice" basis="xz" color="mat">
+    <filename>basis</filename>
+    <origin>0 0 0</origin>
+    <width>155 155</width>
+    <pixels>1000 1000</pixels>
+  </plot>
+
+  <!-- Color by material ID with specified colors -->
+  <plot id="4" type="slice" color="mat">
+    <filename>col_spec</filename>
+    <origin>0 0 0</origin>
+    <width>155 155</width>
+    <basis>xy</basis>
+    <pixels>2000 2000</pixels>
+    <!-- Change background color to black -->
+    <!-- This is the color used where no cell is found -->
+    <background>0 0 0</background>
+    <!-- Specify material colors -->
+    <col_spec id="1" rgb="0 0 255"/>      <!-- Water: blue -->
+    <col_spec id="2" rgb="255 0 0"/>      <!-- Fuel:  red  -->
+    <col_spec id="3" rgb="160 160 160"/>  <!-- Clad:  gray -->
+    <!--The remaining material colors will be randomly selected -->
+  </plot>
+
+  <!-- Use a mask to plot only specific cells -->
+  <plot id="5" type="slice" color="cell">
+    <filename>col_spec</filename>
+    <origin>0 0 0</origin>
+    <width>155 155</width>
+    <basis>xy</basis>
+    <pixels>2000 2000</pixels>
+    
+    <!-- Here we plot only cells 31 and 1112, coloring all other cells white -->
+    <mask components="31 1112" background="255 255 255"/>
+    
+    <!-- We can still set specific colors while using a mask -->
+    <col_spec id="31" rgb="0 255 0"/>      <!-- Control: green  -->
+    <col_spec id="1112" rgb="0 0 0"/>      <!-- Barrel:  black  -->
+    
+    <!-- we can still set the background color when using a mash -->
+    <background>0 255 255</background>
   </plot>
 
 </plots>

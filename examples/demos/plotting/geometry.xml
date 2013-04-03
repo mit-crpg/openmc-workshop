@@ -33,12 +33,6 @@
       <cell id="31" universe="3" material="4" surfaces="  -3"/>  <!-- pyrex -->
       <cell id="32" universe="3" material="1" surfaces="   3"/>  <!-- water -->
 
-      <!-- Al2O3 Rod -->
-      <cell id="41" universe="4" material="5" surfaces="  -6"/>  <!-- al2o3 -->
-      <cell id="42" universe="4" material="6" surfaces="6 -7"/>  <!-- clad  -->
-      <cell id="43" universe="4" material="1" surfaces="   7"/>  <!-- water -->
-
-
   <!-- Assembly construction -->
 
     <!-- Dummy Water Assembly Universe -->

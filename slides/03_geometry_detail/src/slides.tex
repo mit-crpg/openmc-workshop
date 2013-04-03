@@ -15,6 +15,7 @@
 \hypersetup{pdfstartview=Fit}
 \usepackage{tikz}
 \usetikzlibrary{shapes,snakes,shadows,arrows,calc}
+\usetikzlibrary{decorations.markings}
 \usepackage{multirow}
 \usepackage{animate}
 \usepackage{moresize}
@@ -24,11 +25,13 @@
 \usepackage{etoolbox}
 \usepackage{listings}
 \usepackage{alltt}
+\usepackage{textpos}
 
 \renewcommand\footnotemark{}
 
 \lstset{
-  columns=fullflexible,
+  basewidth=0.5em,
+%  columns=fullflexible,
   showspaces=false,
   showtabs=false,
   showstringspaces=false,
@@ -66,7 +69,7 @@
 \usetheme{Copenhagen}
 \usecolortheme{beaver}
 
-\title{OpenMC Module: <title here>}
+\title{OpenMC Module: Detailed Geometry Specification and Visualization}
 \author{\emph{Computational Reactor Physics Group}}
 \date{\normalsize Department of Nuclear Science and Engineering\\
                   Massachusetts Institute of Technology \\
@@ -84,6 +87,42 @@
 %-------------------------------------------------------------------------------
 
 \frame{\titlepage}\logo{} % remove logo after title page
+
+
+%-------------------------------------------------------------------------------
+
+\begin{frame}{Building Complex Models is Straightforward}
+  \begin{columns}
+    \begin{column}{0.5\linewidth}
+      \begin{itemize}
+        \item Universes
+        \item Lattices
+        \item Building a full-core model
+        \item Visualizing geometry
+      \end{itemize}
+    \end{column}
+    \begin{column}{0.5\linewidth}
+      \centering
+      \includegraphics[width=2in]{src/core.png}      
+    \end{column}
+  \end{columns}
+\end{frame}
+
+%-------------------------------------------------------------------------------
+
+\input{src/univs.tex}
+
+%-------------------------------------------------------------------------------
+
+\input{src/lattices.tex}
+
+%-------------------------------------------------------------------------------
+
+\input{src/core.tex}
+
+%-------------------------------------------------------------------------------
+
+\input{src/plotting.tex}
 
 %-------------------------------------------------------------------------------
 \end{document}

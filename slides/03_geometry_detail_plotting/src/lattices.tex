@@ -41,10 +41,11 @@
   \onslide<2>{
     \setlength{\TPHorizModule}{\framewidth}
     \setlength{\TPVertModule}{\paperheight}
-    \begin{textblock}{1}(0.67,-0.32)
+    \begin{textblock}{1}(0.67,-0.37)
       \begin{tikzpicture}
         \draw[red,thick,->](1,0) node (la) [,anchor=west] {Bad!} -- (.2,0);
         \node[red,anchor=north] at (la.south) {\footnotesize There is undefined space!};
+        \node[red,anchor=south] at (la.north) {\footnotesize No boundary condition!};
       \end{tikzpicture}
     \end{textblock}
   }

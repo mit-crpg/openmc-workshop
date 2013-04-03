@@ -2,9 +2,9 @@
 <settings>
 
   <!-- Path for cross section library -->
-  <cross_sections> 
-    ../../data/cross_sections.xml
-  </cross_sections>
+<!--  <cross_sections> -->
+<!--    ../../data/cross_sections.xml-->
+<!--  </cross_sections>-->
 
   <!-- Parameters for criticality calculation -->
   <eigenvalue batches="120" generations_per_batch="1" inactive="20" particles="1000" />

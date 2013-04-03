@@ -2,9 +2,9 @@
 <settings>
 
   <!-- Path for cross section library -->
-  <cross_sections> 
-    /home/shared/mcnpdata/binary/cross_sections.xml
-  </cross_sections>
+<!--  <cross_sections> -->
+<!--    /home/shared/mcnpdata/binary/cross_sections.xml-->
+<!--  </cross_sections>-->
 
   <!-- Parameters for criticality calculation -->
   <criticality batches="350" generations_per_batch="1" inactive="250" particles="4000000" />

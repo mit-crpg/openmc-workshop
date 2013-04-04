@@ -1,10 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <geometry>
 
-  <!--            XML Comment            -->
-  <surface id="     1" type="sphere"          coeffs="        0.0 0.0 0.0 100"/>   <!--          XML Comment          -->
+      <!-- Fuel Rod -->
+      <surface id="1"  type="z-cylinder" coeffs="0.0 0.0 0.514858"/>       <!-- fuel OR       -->
+      <surface id="2"  type="z-cylinder" coeffs="0.0 0.0 0.602996"/>       <!-- fuel clad OR  -->
+      <cell id="21" material="2" surfaces="  -1"/>  <!-- fuel  -->
+      <cell id="22" material="3" surfaces="1 -2"/>  <!-- clad  -->
+      <cell id="23" material="1" surfaces="   2"/>  <!-- water -->
 
-  <cell id="     1" universe="     0" material="     1"  surfaces="        -1"/>
-
+      <!-- Pin-Lattice -->
+      <lattice id="100" type="rectangular" dimension="2 2">
+        <lower_left> -1.25984 -1.25984 </lower_left>
+        <width> 1.25984 1.25984 </width>
+        <universes>
+        2 2
+        2 2
+        </universes>
+      </lattice>
+      <surface id="99" type="sphere" coeffs="0.0 0.0 0.0 400.0"/>
+      <cell id="1000" universe="2" material="2" surfaces="-99"/>
 
 </geometry>

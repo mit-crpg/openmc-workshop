@@ -59,7 +59,7 @@
   <tally id="3">
     <label>My Test Tally #3</label>
     <filter type="mesh" bins="3"/>
-    <estimator>tracklength<estimator> <!-- Can also be: 'analog', 'track-length', 'pathlength', 'path-length' -->
+    <estimator>tracklength</estimator> <!-- Can also be: 'analog', 'track-length', 'pathlength', 'path-length' -->
     <scores>total flux nu-fission</scores>
   </tally>
 

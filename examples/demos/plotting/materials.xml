@@ -15,7 +15,6 @@
   <material id="2">
     <density value="10.24" units="g/cc" />
     <nuclide name="U-235" xs="70c" ao="5.6868E-004" />
-    <nuclide name="U-234" xs="70c" ao="4.5689E-006" />
     <nuclide name="U-238" xs="70c" ao="2.2268E-002" />
     <nuclide name="O-16"  xs="70c" ao="4.5683E-002" />
     <nuclide name="B-10"  xs="70c" ao="2.6055E-007" />
@@ -24,7 +23,7 @@
   <!--               Zircaloy-4               -->
   <material id="3">
     <density value="  6.55" units="g/cc" />
-    <nuclide name="O-16"  xs="71c" ao="3.0743e-04" />
+    <nuclide name="O-16"  xs="70c" ao="3.0743e-04" />
 <!--    <nuclide name="O-17"  xs="71c" ao="7.4887e-07" />-->
 <!--    <nuclide name="Cr-50"  xs="71c" ao="3.2962e-06" />-->
 <!--    <nuclide name="Cr-52"  xs="71c" ao="6.3564e-05" />-->
@@ -34,11 +33,11 @@
 <!--    <nuclide name="Fe-56"  xs="71c" ao="1.3610e-04" />-->
 <!--    <nuclide name="Fe-57"  xs="71c" ao="3.1431e-06" />-->
 <!--    <nuclide name="Fe-58"  xs="71c" ao="4.1829e-07" />-->
-    <nuclide name="Zr-90"  xs="71c" ao="2.1827e-02" />
-    <nuclide name="Zr-91"  xs="71c" ao="4.7600e-03" />
-    <nuclide name="Zr-92"  xs="71c" ao="7.2758e-03" />
-    <nuclide name="Zr-94"  xs="71c" ao="7.3734e-03" />
-    <nuclide name="Zr-96"  xs="71c" ao="1.1879e-03" />
+    <nuclide name="Zr-90"  xs="70c" ao="2.1827e-02" />
+    <nuclide name="Zr-91"  xs="70c" ao="4.7600e-03" />
+    <nuclide name="Zr-92"  xs="70c" ao="7.2758e-03" />
+    <nuclide name="Zr-94"  xs="70c" ao="7.3734e-03" />
+    <nuclide name="Zr-96"  xs="70c" ao="1.1879e-03" />
 <!--    <nuclide name="Sn-112"  xs="71c" ao="4.6735e-06" />-->
 <!--    <nuclide name="Sn-114"  xs="71c" ao="3.1799e-06" />-->
 <!--    <nuclide name="Sn-115"  xs="71c" ao="1.6381e-06" />-->

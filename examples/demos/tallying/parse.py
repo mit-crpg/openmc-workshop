@@ -62,7 +62,7 @@ def main():
                 
     # write gnuplot file and make plots
     with open('tmp.gnuplot','w') as fh:
-      fh.write(r"""set terminal png size 1000 400
+      fh.write(r"""set terminal png size 800,400
 set output 'fluxplot.png'
 set nokey
 set autoscale fix

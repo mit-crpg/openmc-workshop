@@ -1,0 +1,31 @@
+<?xml version='1.0' encoding='utf-8'?>
+<materials>
+    <default_xs>71c</default_xs>
+    <material id="10000" name="uo2">
+        <density units="g/cm3" value="10.3" />
+        <nuclide name="U-235" wo="0.02115" />
+        <nuclide name="U-238" wo="0.86032" />
+        <nuclide name="O-16" wo="0.11852" />
+    </material>
+    <material id="10001" name="zirconium">
+        <density units="g/cm3" value="6.55" />
+        <element ao="1.0" name="Zr" />
+    </material>
+    <material id="10002" name="water">
+        <density units="g/cm3" value="0.701" />
+        <nuclide ao="2" name="H-1" />
+        <nuclide ao="1" name="O-16" />
+        <sab name="hh2o" xs="71t" />
+    </material>
+    <material id="10003" name="void">
+        <density units="g/cm3" value="1e-10" />
+        <nuclide ao="1" name="He-4" />
+    </material>
+    <material id="10004" name="pyrex">
+        <density units="g/cm3" value="2.26" />
+        <element ao="0.00488396" name="B" />
+        <element ao="0.046624" name="O" />
+        <element ao="0.0017352" name="Al" />
+        <element ao="0.0183512" name="Si" />
+    </material>
+</materials>

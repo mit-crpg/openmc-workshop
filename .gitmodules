@@ -1,0 +1,3 @@
+[submodule "openmc"]
+	path = openmc
+	url = https://github.com/mit-crpg/openmc.git

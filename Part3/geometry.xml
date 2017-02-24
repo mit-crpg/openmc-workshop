@@ -2,20 +2,20 @@
 <geometry>
     <cell id="1" material="10000" name="fuel" region="-10000" universe="10000" />
     <cell id="10000" material="10002" region="-10003" universe="10001" />
-    <cell id="10001" material="10001" region="(10003 -10004)" universe="10001" />
+    <cell id="10001" material="10001" region="10003 -10004" universe="10001" />
     <cell id="10002" material="10002" region="10004" universe="10001" />
     <cell id="10003" material="10003" region="-10005" universe="10002" />
-    <cell id="10004" material="10001" region="(10005 -10006)" universe="10002" />
-    <cell id="10005" material="10003" region="(10006 -10007)" universe="10002" />
-    <cell id="10006" material="10004" region="(10007 -10008)" universe="10002" />
-    <cell id="10007" material="10003" region="(10008 -10009)" universe="10002" />
-    <cell id="10008" material="10001" region="(10009 -10010)" universe="10002" />
-    <cell id="10009" material="10002" region="(10010 -10011)" universe="10002" />
-    <cell id="10010" material="10001" region="(10011 -10012)" universe="10002" />
+    <cell id="10004" material="10001" region="10005 -10006" universe="10002" />
+    <cell id="10005" material="10003" region="10006 -10007" universe="10002" />
+    <cell id="10006" material="10004" region="10007 -10008" universe="10002" />
+    <cell id="10007" material="10003" region="10008 -10009" universe="10002" />
+    <cell id="10008" material="10001" region="10009 -10010" universe="10002" />
+    <cell id="10009" material="10002" region="10010 -10011" universe="10002" />
+    <cell id="10010" material="10001" region="10011 -10012" universe="10002" />
     <cell id="10011" material="10002" region="10012" universe="10002" />
-    <cell fill="10004" id="10013" name="root cell" region="(((((10013 -10014) 10015) -10016) 10017) -10018)" universe="0" />
-    <cell id="2" material="10003" name="air gap" region="(10000 -10001)" universe="10000" />
-    <cell id="3" material="10001" name="clad" region="(10001 -10002)" universe="10000" />
+    <cell fill="10004" id="10013" name="root cell" region="10013 -10014 10015 -10016 10017 -10018" universe="0" />
+    <cell id="2" material="10003" name="air gap" region="10000 -10001" universe="10000" />
+    <cell id="3" material="10001" name="clad" region="10001 -10002" universe="10000" />
     <cell id="4" material="10002" name="moderator" region="10002" universe="10000" />
     <lattice id="10004" name="assembly">
         <pitch>1.26 1.26</pitch>

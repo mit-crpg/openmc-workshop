@@ -9,9 +9,9 @@ import openmc.mgxs
 ###############################################################################
 
 uo2 = openmc.Material(name='uo2')
-uo2.add_nuclide('U-235', 0.02115, 'wo')
-uo2.add_nuclide('U-238', 0.86032, 'wo')
-uo2.add_nuclide('O-16', 0.11852, 'wo')
+uo2.add_nuclide('U235', 0.02115, 'wo')
+uo2.add_nuclide('U238', 0.86032, 'wo')
+uo2.add_nuclide('O16', 0.11852, 'wo')
 uo2.set_density('g/cm3', 10.3)
 
 zirconium = openmc.Material(name='zirconium')
@@ -19,13 +19,13 @@ zirconium.add_element('Zr', 1.0)
 zirconium.set_density('g/cm3', 6.55)
 
 water = openmc.Material(name='water')
-water.add_nuclide('H-1', 2)
-water.add_nuclide('O-16', 1)
+water.add_nuclide('H1', 2)
+water.add_nuclide('O16', 1)
 water.set_density('g/cm3', 0.701)
-water.add_s_alpha_beta('hh2o', '71t')
+water.add_s_alpha_beta('c_H_in_H2O')
 
 void = openmc.Material(name='void')
-void.add_nuclide('He-4', 1)
+void.add_nuclide('He4', 1)
 void.set_density('g/cm3', 1E-10)
 
 pyrex = openmc.Material(name='pyrex')
@@ -36,7 +36,6 @@ pyrex.add_element('Si', 1.83512e-2)
 pyrex.set_density('g/cm3', 2.26)
 
 materials = openmc.Materials((uo2, zirconium, water, pyrex, void))
-materials.default_xs = '71c'
 materials.export_to_xml()
 
 
@@ -179,8 +178,6 @@ settings = openmc.Settings()
 settings.batches = 100
 settings.inactive = 10
 settings.particles = 10000
-settings.ptables = True
-settings.output = {'tallies': True}
 settings.source = source
 settings.sourcepoint_write = True
 settings.export_to_xml()
@@ -224,39 +221,38 @@ mesh.lower_left = assembly.lower_left
 mesh.width = assembly.pitch
 
 # Instantiate mesh Filter
-mesh_filter = openmc.Filter()
-mesh_filter.mesh = mesh
+mesh_filter = openmc.MeshFilter(mesh)
 
 # Fission rate mesh Tally
 mesh_fiss = openmc.Tally(name='mesh fission')
 mesh_fiss.filters = [mesh_filter]
 mesh_fiss.scores = ['fission']
-mesh_fiss.nuclides = ['U-235', 'U-238']
+mesh_fiss.nuclides = ['U235', 'U238']
 
 # Fine energy flux Tally
 flux = openmc.Tally(name='flux')
-energies = np.logspace(np.log10(1E-8), np.log10(8.), 1000)
-flux.filters = [openmc.Filter(type='energy', bins=energies)]
+energies = np.logspace(-2, np.log10(8e6), 1000)
+flux.filters = [openmc.EnergyFilter(energies)]
 flux.scores = ['flux']
 
 # U-238 capture and fission distribcell Tally
 distribcell = openmc.Tally(name='distribcell')
-distribcell.filters = [openmc.Filter(type='distribcell', bins=[fuel.id])]
-distribcell.nuclides = ['U-235', 'U-238']
+distribcell.filters = [openmc.DistribcellFilter(fuel.id)]
+distribcell.nuclides = ['U235', 'U238']
 distribcell.scores = ['absorption', 'fission']
 
 # Resonance escape probability Tallies
 therm_abs = openmc.Tally(name='thermal absorption')
 therm_abs.scores = ['absorption']
-therm_abs.filters = [openmc.Filter(type='energy', bins=[0., 0.625e-6])]
+therm_abs.filters = [openmc.EnergyFilter([0., 0.625])]
 
 tot_abs = openmc.Tally(name='total absorption')
 tot_abs.scores = ['absorption']
 
 # Instantiate an 8-group structure for MGXS tallies
 groups8 = openmc.mgxs.EnergyGroups()
-groups8.group_edges = np.array([0., 0.058e-6, 0.14e-6, 0.28e-6,
-                                0.625e-6, 4.e-6, 5.53e-3, 821.e-3, 20.])
+groups8.group_edges = np.array([0.0, 0.058, 0.14, 0.28, 0.625, 4.0, 5.53e3,
+                                821e3, 20e6])
 
 # Total MGXS
 tot_mgxs = openmc.mgxs.TotalXS(domain=fuel, domain_type='cell',

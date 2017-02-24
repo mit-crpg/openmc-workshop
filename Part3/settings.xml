@@ -10,11 +10,4 @@
             <parameters>-10.71 -10.71 -10 10.71 10.71 10.0</parameters>
         </space>
     </source>
-    <output>
-        <tallies>true</tallies>
-    </output>
-    <source_point>
-        <write>true</write>
-    </source_point>
-    <ptables>true</ptables>
 </settings>

@@ -4,7 +4,6 @@
         <origin>0.0 0.0 0.0</origin>
         <width>21.42 21.42</width>
         <pixels>2000 2000</pixels>
-        <background>0 0 0</background>
         <col_spec id="10000" rgb="255 75 75" />
         <col_spec id="10001" rgb="96 96 96" />
         <col_spec id="10002" rgb="102 178 255" />

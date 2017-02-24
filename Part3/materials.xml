@@ -26,13 +26,13 @@
     </material>
     <material id="10004" name="pyrex">
         <density units="g/cm3" value="2.26" />
-        <nuclide ao="0.00097190804" name="B10" />
-        <nuclide ao="0.00391205196" name="B11" />
-        <nuclide ao="0.046606282879999995" name="O16" />
-        <nuclide ao="1.771712e-05" name="O17" />
+        <nuclide ao="0.0009680008719999999" name="B10" />
+        <nuclide ao="0.003915959128" name="B11" />
+        <nuclide ao="0.046606329503999996" name="O16" />
+        <nuclide ao="1.7670496e-05" name="O17" />
         <nuclide ao="0.0017352" name="Al27" />
-        <nuclide ao="0.016924027176" name="Si28" />
-        <nuclide ao="0.0008597537200000002" name="Si29" />
-        <nuclide ao="0.000567419104" name="Si30" />
+        <nuclide ao="0.016925253036160003" name="Si28" />
+        <nuclide ao="0.0008594160579200001" name="Si29" />
+        <nuclide ao="0.00056653090592" name="Si30" />
     </material>
 </materials>

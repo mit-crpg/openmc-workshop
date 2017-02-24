@@ -1,10 +1,9 @@
 <?xml version='1.0' encoding='utf-8'?>
 <settings>
-    <eigenvalue>
-        <particles>10000</particles>
-        <batches>100</batches>
-        <inactive>10</inactive>
-    </eigenvalue>
+    <run_mode>eigenvalue</run_mode>
+    <particles>10000</particles>
+    <batches>100</batches>
+    <inactive>10</inactive>
     <source strength="1.0">
         <space type="fission">
             <parameters>-10.71 -10.71 -10 10.71 10.71 10.0</parameters>

@@ -1,1 +1,1 @@
-Slides and Jupyter Notebooks used for the OpenMC workshop at the PHYSOR 2016 conference in Sun Valley, ID.
+Jupyter Notebooks used for the OpenMC workshop at IRSN in March 2017.

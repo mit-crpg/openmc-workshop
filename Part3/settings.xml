@@ -1,12 +1,17 @@
 <?xml version='1.0' encoding='utf-8'?>
 <settings>
     <run_mode>eigenvalue</run_mode>
-    <particles>10000</particles>
-    <batches>100</batches>
+    <particles>50000</particles>
+    <batches>50</batches>
     <inactive>10</inactive>
     <source strength="1.0">
-        <space type="fission">
-            <parameters>-10.71 -10.71 -10 10.71 10.71 10.0</parameters>
+        <space type="box">
+            <parameters>-8 -8 -10 8 8 10.0</parameters>
         </space>
     </source>
+    <entropy>
+        <dimension>17 17 1</dimension>
+        <lower_left>-10.71 -10.71 -1e+50</lower_left>
+        <upper_right>10.71 10.71 1e+50</upper_right>
+    </entropy>
 </settings>

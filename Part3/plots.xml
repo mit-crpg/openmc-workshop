@@ -1,13 +1,13 @@
 <?xml version='1.0' encoding='utf-8'?>
 <plots>
-    <plot basis="xy" color="mat" filename="materials" id="1" type="slice">
+    <plot basis="xy" color_by="material" filename="materials" id="1" type="slice">
         <origin>0.0 0.0 0.0</origin>
         <width>21.42 21.42</width>
         <pixels>2000 2000</pixels>
-        <col_spec id="10000" rgb="255 75 75" />
-        <col_spec id="10001" rgb="96 96 96" />
-        <col_spec id="10002" rgb="102 178 255" />
-        <col_spec id="10003" rgb="0 0 0" />
-        <col_spec id="10004" rgb="0 153 0" />
+        <color id="10000" rgb="255 75 75" />
+        <color id="10001" rgb="96 96 96" />
+        <color id="10002" rgb="102 178 255" />
+        <color id="10003" rgb="0 0 0" />
+        <color id="10004" rgb="0 153 0" />
     </plot>
 </plots>

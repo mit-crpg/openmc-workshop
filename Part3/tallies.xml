@@ -1,13 +1,13 @@
 <?xml version='1.0' encoding='utf-8'?>
 <tallies>
     <!--assembly mesh-->
-    <mesh id="10000" type="regular">
+    <mesh id="10001" type="regular">
         <dimension>17 17</dimension>
         <lower_left>-10.71 -10.71</lower_left>
         <width>1.26 1.26</width>
     </mesh>
     <tally id="10000" name="mesh fission">
-        <filter bins="10000" type="mesh" />
+        <filter bins="10001" type="mesh" />
         <nuclides>U235 U238</nuclides>
         <scores>fission</scores>
     </tally>

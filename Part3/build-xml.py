@@ -166,20 +166,29 @@ geometry.export_to_xml()
 #                   Exporting to OpenMC settings.xml File
 ###############################################################################
 
-# Construct uniform initial source distribution over fissionable zones
-lower_left = [-10.71, -10.71, -10]
-upper_right = [10.71, 10.71, 10.]
-source = openmc.source.Source(
-    space=openmc.stats.Box(lower_left, upper_right, only_fissionable=True))
-source.space.only_fissionable = True
+# Construct an initial source.  This is not how a source should really be
+# constructed.  For this problem, it would be much better to use an initial
+# source that encompases all the fuel and to use the only_fissionable=True
+# option.  This source is different in order to demonstrate typical k_eff and
+# entropy convergence behavior.
+lower_left = [-8, -8, -10]
+upper_right = [8, 8, 10.]
+source = openmc.source.Source(space=openmc.stats.Box(lower_left, upper_right))
+
+# Create an entropy mesh.
+entropy_mesh = openmc.Mesh()
+entropy_mesh.lower_left = [-10.71, -10.71, -1.e50]
+entropy_mesh.upper_right = [10.71, 10.71, 1.e50]
+entropy_mesh.dimension = [17, 17, 1]
 
 # Instantiate Settings collection and export to "settings.xml"
 settings = openmc.Settings()
-settings.batches = 100
+settings.batches = 50
 settings.inactive = 10
-settings.particles = 10000
+settings.particles = 50000
 settings.source = source
 settings.sourcepoint_write = True
+settings.entropy_mesh = entropy_mesh
 settings.export_to_xml()
 
 
@@ -191,16 +200,16 @@ settings.export_to_xml()
 plot = openmc.Plot(plot_id=1)
 plot.width = [10.71 * 2] * 2
 plot.basis = 'xy'
-plot.color = 'mat'
+plot.color_by = 'material'
 plot.filename = 'materials'
 plot.pixels = [2000, 2000]
 plot.mask_background = [255, 255, 255]
-plot.col_spec = {
-    water.id:     [102, 178, 255],   # water:  blue
-    zirconium.id: [ 96,  96,  96],   # zirc:   gray
-    uo2.id:       [255,  75,  75],   # fuel:   red
-    pyrex.id:     [  0, 153,   0],   # pyrex:  green
-    void.id:      [  0,   0,   0]    # void:   white
+plot.colors = {
+    water:     [102, 178, 255],   # water:  blue
+    zirconium: [ 96,  96,  96],   # zirc:   gray
+    uo2:       [255,  75,  75],   # fuel:   red
+    pyrex:     [  0, 153,   0],   # pyrex:  green
+    void:      [  0,   0,   0]    # void:   white
 }
 
 

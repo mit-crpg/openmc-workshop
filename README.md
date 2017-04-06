@@ -1,1 +1,1 @@
-Jupyter Notebooks used for the OpenMC workshop at IRSN in March 2017.
+Jupyter Notebooks used for the OpenMC workshop at the 2017 ANS Student Conference.

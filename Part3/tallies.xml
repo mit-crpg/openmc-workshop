@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='utf-8'?>
+<tallies>
+  <filter id="1" type="cell">
+    <bins>1 4 7 10 13 16 19 22 25 28 31 34 37 40 43 46 49 52 55 58</bins>
+  </filter>
+  <tally id="1">
+    <scores>kappa-fission</scores>
+  </tally>
+  <tally id="2">
+    <filters>1</filters>
+    <scores>kappa-fission</scores>
+  </tally>
+</tallies>
